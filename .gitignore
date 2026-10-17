@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# IDE & AI Assistant Configuration
+.agent/
+.agents/
+.gemini/
+.impeccable/
+anti-slop/
+skills-lock.json
+
+# Environment & Local Configuration
+.env
+.env.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & Temporary Files
+*.log
+tmp/
+temp/
