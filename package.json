@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/lint.cjs",
     "dev": "php -S 127.0.0.1:8000",
     "start": "php -S 127.0.0.1:8000",
     "lint": "node scripts/lint.cjs",
