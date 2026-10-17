@@ -25,20 +25,31 @@ const files = findPhpFiles(rootDir);
 console.log(`Found ${files.length} PHP file(s) to verify:`);
 
 let hasError = false;
-for (const file of files) {
-  const relative = path.relative(rootDir, file).replace(/\\/g, '/');
-  try {
-    const output = execSync(`php -l "${file}"`, { encoding: 'utf8' }).trim();
-    console.log(`  [OK] ${relative}: ${output}`);
-  } catch (err) {
-    console.error(`  [FAIL] ${relative}:\n${err.stdout || err.message}`);
-    hasError = true;
-  }
+let phpAvailable = true;
+
+try {
+  execSync('php -v', { stdio: 'ignore' });
+} catch {
+  phpAvailable = false;
+  console.warn('Notice: PHP CLI is not available in this environment. Skipping syntax checks.');
 }
 
-if (hasError) {
-  console.error('\nSyntax check failed on one or more files.');
-  process.exit(1);
-} else {
-  console.log('\nAll PHP files passed syntax checks successfully.');
+if (phpAvailable) {
+  for (const file of files) {
+    const relative = path.relative(rootDir, file).replace(/\\/g, '/');
+    try {
+      const output = execSync(`php -l "${file}"`, { encoding: 'utf8' }).trim();
+      console.log(`  [OK] ${relative}: ${output}`);
+    } catch (err) {
+      console.error(`  [FAIL] ${relative}:\n${err.stdout || err.message}`);
+      hasError = true;
+    }
+  }
+
+  if (hasError) {
+    console.error('\nSyntax check failed on one or more files.');
+    process.exit(1);
+  } else {
+    console.log('\nAll PHP files passed syntax checks successfully.');
+  }
 }
