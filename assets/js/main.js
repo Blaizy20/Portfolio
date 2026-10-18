@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCourseworkFilters();
     initProjectTabs();
     initResumeModal();
+    initTouchGestures();
 });
 
 /**
@@ -52,6 +53,28 @@ function initWelcomeScreen() {
     let activeAnimFrame = null;
     let activeStageTimeout = null;
     let typeTimer = null;
+
+    // Check if welcome screen has already been shown in this session
+    try {
+        if (sessionStorage.getItem('portfolio-welcome-seen') === 'true') {
+            welcomeScreen.style.display = 'none';
+            welcomeScreen.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('welcome-locked');
+            if (header) { header.classList.remove('staged-hidden'); header.classList.add('staged-enter'); }
+            if (sidebar) { sidebar.classList.remove('staged-hidden'); sidebar.classList.add('staged-enter'); }
+            if (content) { content.classList.remove('staged-hidden'); content.classList.add('staged-enter'); }
+            if (typewriterText) typewriterText.textContent = fullHeadline;
+            if (typewriterCursor) typewriterCursor.classList.add('is-hidden');
+            if (typewriterLead) typewriterLead.textContent = fullLeadText;
+            if (typewriterLeadCursor) typewriterLeadCursor.classList.add('is-hidden');
+            const introSub = document.getElementById('introSubtext');
+            if (introSub) {
+                introSub.classList.remove('staged-subtext-hidden');
+                introSub.classList.add('staged-subtext-visible');
+            }
+            return;
+        }
+    } catch (_) {}
 
     // Immediately lock page scroll while welcome card is present
     document.body.classList.add('welcome-locked');
@@ -299,6 +322,10 @@ function initWelcomeScreen() {
         // Smooth expanding transition: card expands outward to reveal empty template
         welcomeScreen.classList.add('is-expanding');
 
+        try {
+            sessionStorage.setItem('portfolio-welcome-seen', 'true');
+        } catch (_) {}
+
         activeStageTimeout = setTimeout(() => {
             welcomeScreen.style.display = 'none';
             welcomeScreen.setAttribute('aria-hidden', 'true');
@@ -326,6 +353,10 @@ function initWelcomeScreen() {
         if (activeAnimFrame) cancelAnimationFrame(activeAnimFrame);
         if (activeStageTimeout) clearTimeout(activeStageTimeout);
         if (typeTimer) clearTimeout(typeTimer);
+
+        try {
+            sessionStorage.setItem('portfolio-welcome-seen', 'true');
+        } catch (_) {}
 
         setPercent(100, 'Ready');
 
@@ -1003,6 +1034,19 @@ function initSpaRouter() {
             }
         });
 
+        // Update active class & aria-current on mobile bottom dock items
+        const mobileLinks = document.querySelectorAll('.mobile-nav-item[data-section]');
+        mobileLinks.forEach(link => {
+            const sec = link.getAttribute('data-section');
+            if (sec === targetId) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            }
+        });
+
         // Glide the physical liquid glass selector indicator up/down to the newly selected section!
         updateSidebarGlassIndicator(true);
 
@@ -1027,6 +1071,7 @@ function initSpaRouter() {
             document.body.style.overflow = '';
         }
     }
+    window.activateSection = activateSection;
 
     // Sidebar navigation clicks
     navLinks.forEach(link => {
@@ -1317,4 +1362,69 @@ function initResumeModal() {
             closeModal();
         }
     });
+}
+
+/**
+ * 9. Mobile Touch Swipe Gesture Navigation
+ * Enables seamless left/right horizontal swipe between sections 01-06.
+ * Tuned with physics thresholds so vertical scrolling is completely uninhibited.
+ */
+function initTouchGestures() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    window.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length !== 1) return;
+
+        // Skip gesture if resume modal or sidebar drawer is open
+        const resumeModal = document.getElementById('resumeModal');
+        const sidebar = document.getElementById('siteSidebar');
+        if (resumeModal?.classList.contains('modal-open')) return;
+        if (sidebar?.classList.contains('drawer-open')) return;
+
+        // Skip gesture if interacting with input fields, scrollable code strips, or buttons
+        const target = e.target;
+        if (target.closest('input, textarea, select, button, .memory-hierarchy-strip, .course-visual-artifact, .filter-bar, pre, code')) {
+            return;
+        }
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        const elapsed = Date.now() - touchStartTime;
+
+        // Intentional horizontal swipe threshold:
+        // - At least 55px horizontal displacement
+        // - Horizontal speed: completed within 500ms
+        // - Strong horizontal bias: Math.abs(diffX) > Math.abs(diffY) * 1.6
+        if (Math.abs(diffX) > 55 && Math.abs(diffX) > Math.abs(diffY) * 1.6 && elapsed < 500) {
+            const VALID_SECTIONS = ['intro', 'coursework', 'projects', 'notes', 'experience', 'contact'];
+            const currentActive = document.querySelector('.content-section.spa-active');
+            const currentId = currentActive ? currentActive.getAttribute('id') : 'intro';
+            const currentIndex = VALID_SECTIONS.indexOf(currentId);
+
+            if (diffX < 0 && currentIndex < VALID_SECTIONS.length - 1) {
+                // Swipe Left -> Next Section
+                if (window.navigator?.vibrate) window.navigator.vibrate(10);
+                if (typeof window.activateSection === 'function') {
+                    window.activateSection(VALID_SECTIONS[currentIndex + 1]);
+                }
+            } else if (diffX > 0 && currentIndex > 0) {
+                // Swipe Right -> Previous Section
+                if (window.navigator?.vibrate) window.navigator.vibrate(10);
+                if (typeof window.activateSection === 'function') {
+                    window.activateSection(VALID_SECTIONS[currentIndex - 1]);
+                }
+            }
+        }
+    }, { passive: true });
 }

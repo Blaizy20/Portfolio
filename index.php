@@ -24,4 +24,5 @@ require __DIR__ . '/includes/lab_notes.php';
 require __DIR__ . '/includes/experience.php';
 require __DIR__ . '/includes/contact.php';
 require __DIR__ . '/includes/resume_modal.php';
+require __DIR__ . '/includes/mobile_nav.php';
 require __DIR__ . '/includes/footer.php';
