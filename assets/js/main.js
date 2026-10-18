@@ -933,8 +933,40 @@ function initMobileDrawer() {
     }
 
     mobileBtn.addEventListener('click', openDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    overlay.addEventListener('click', closeDrawer);
+
+    if (closeBtn) {
+        ['click', 'touchend'].forEach(evt => {
+            closeBtn.addEventListener(evt, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDrawer();
+            }, { passive: false });
+        });
+    }
+
+    ['click', 'touchend'].forEach(evt => {
+        overlay.addEventListener(evt, (e) => {
+            e.preventDefault();
+            closeDrawer();
+        }, { passive: false });
+    });
+
+    // Touch swipe left on open sidebar to close
+    let sidebarTouchStartX = 0;
+    sidebar.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            sidebarTouchStartX = e.touches[0].clientX;
+        }
+    }, { passive: true });
+
+    sidebar.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length === 1 && sidebar.classList.contains('drawer-open')) {
+            const sidebarDiffX = e.changedTouches[0].clientX - sidebarTouchStartX;
+            if (sidebarDiffX < -40) {
+                closeDrawer();
+            }
+        }
+    }, { passive: true });
 
     // Close drawer when navigating via link on mobile
     sidebar.querySelectorAll('.sidebar-nav-link').forEach(link => {
