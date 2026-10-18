@@ -3469,7 +3469,7 @@ body.sidebar-collapsed .main-content {
         position: relative;
     }
 
-    /* Physical Sliding Liquid Glass Selector Indicator (Glides left/right between items) */
+    /* Physical Sliding Liquid Glass Selector Indicator (Glides left/right between items like real living fluid) */
     .mobile-liquid-glass-indicator {
         position: absolute;
         top: 0;
@@ -3477,31 +3477,70 @@ body.sidebar-collapsed .main-content {
         pointer-events: none;
         z-index: 1;
         border-radius: var(--radius-full);
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 100%);
-        backdrop-filter: blur(20px) saturate(200%);
-        -webkit-backdrop-filter: blur(20px) saturate(200%);
-        border: 1px solid rgba(255, 255, 255, 0.32);
-        box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.55),
-                    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-                    0 0 18px rgba(59, 130, 246, 0.32);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
+        backdrop-filter: blur(24px) saturate(220%);
+        -webkit-backdrop-filter: blur(24px) saturate(220%);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.5),
+                    inset 0 1.5px 1px rgba(255, 255, 255, 0.65),
+                    inset 0 -1.5px 1px rgba(59, 130, 246, 0.25),
+                    0 0 20px rgba(59, 130, 246, 0.32);
         opacity: 0;
-        transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
-                    width 360ms cubic-bezier(0.16, 1, 0.3, 1),
-                    height 360ms cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 200ms ease;
+        transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                    width 380ms cubic-bezier(0.22, 1, 0.36, 1),
+                    height 380ms cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 250ms ease;
         will-change: transform, width, height, opacity;
+        animation: liquidDropletBreathing 4.5s ease-in-out infinite alternate;
     }
 
     [data-theme="light"] .mobile-liquid-glass-indicator {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 244, 252, 0.9) 100%);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(235, 242, 254, 0.92) 100%);
         border: 1px solid rgba(0, 0, 0, 0.14);
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08),
-                    inset 0 1px 0 #ffffff,
-                    0 0 16px rgba(59, 130, 246, 0.16);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08),
+                    inset 0 1.5px 1px #ffffff,
+                    0 0 18px rgba(59, 130, 246, 0.2);
+        animation: liquidDropletBreathingLight 4.5s ease-in-out infinite alternate;
     }
 
-    /* Glowing liquid glass capsule jewel accent dot */
+    /* Organic living pulse of the liquid droplet */
+    @keyframes liquidDropletBreathing {
+        0% {
+            box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.5),
+                        inset 0 1.5px 1px rgba(255, 255, 255, 0.65),
+                        inset 0 -1.5px 1px rgba(59, 130, 246, 0.25),
+                        0 0 16px rgba(59, 130, 246, 0.28);
+            border-color: rgba(255, 255, 255, 0.32);
+        }
+        50% {
+            box-shadow: 0 6px 24px -2px rgba(0, 0, 0, 0.6),
+                        inset 0 2px 1.5px rgba(255, 255, 255, 0.85),
+                        inset 0 -2px 1.5px rgba(59, 130, 246, 0.45),
+                        0 0 26px rgba(56, 189, 248, 0.45);
+            border-color: rgba(147, 197, 253, 0.55);
+        }
+        100% {
+            box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.5),
+                        inset 0 1.5px 1px rgba(255, 255, 255, 0.65),
+                        inset 0 -1.5px 1px rgba(59, 130, 246, 0.25),
+                        0 0 16px rgba(59, 130, 246, 0.28);
+            border-color: rgba(255, 255, 255, 0.32);
+        }
+    }
+
+    @keyframes liquidDropletBreathingLight {
+        0% {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1.5px 1px #ffffff, 0 0 14px rgba(59, 130, 246, 0.16);
+        }
+        50% {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), inset 0 2px 1.5px #ffffff, 0 0 22px rgba(56, 189, 248, 0.32);
+        }
+        100% {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1.5px 1px #ffffff, 0 0 14px rgba(59, 130, 246, 0.16);
+        }
+    }
+
+    /* Glowing liquid mercury drop nucleus that breathes organically */
     .mobile-liquid-glass-indicator::before {
         content: '';
         position: absolute;
@@ -3509,21 +3548,56 @@ body.sidebar-collapsed .main-content {
         left: 50%;
         transform: translateX(-50%);
         width: 14px;
-        height: 2.5px;
+        height: 3px;
         border-radius: var(--radius-full);
-        background: linear-gradient(90deg, #93c5fd 0%, #3b82f6 50%, #2563eb 100%);
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.95), 0 0 20px rgba(59, 130, 246, 0.5);
+        background: linear-gradient(90deg, #60a5fa 0%, #38bdf8 50%, #3b82f6 100%);
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.95), 0 0 20px rgba(59, 130, 246, 0.6);
+        animation: liquidPulseCore 2.8s ease-in-out infinite alternate;
     }
 
-    /* Internal glass sheen refraction wave on mobile sliding selector */
+    @keyframes liquidPulseCore {
+        0% {
+            width: 12px;
+            opacity: 0.75;
+            filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+        }
+        50% {
+            width: 18px;
+            opacity: 1;
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.95));
+        }
+        100% {
+            width: 12px;
+            opacity: 0.75;
+            filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+        }
+    }
+
+    /* Internal physical liquid meniscus wave and caustic sheen */
     .mobile-liquid-glass-indicator::after {
         content: '';
         position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
-        pointer-events: none;
+        inset: -1px;
         border-radius: inherit;
-        animation: liquidGlassRefract 5s ease-in-out infinite alternate;
+        background: radial-gradient(ellipse 80% 50% at 50% 15%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.06) 50%, transparent 80%),
+                    radial-gradient(circle at 50% 90%, rgba(59, 130, 246, 0.28) 0%, transparent 65%);
+        pointer-events: none;
+        animation: liquidMeniscusWave 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes liquidMeniscusWave {
+        0% {
+            opacity: 0.65;
+            transform: scale(0.97) translateY(-0.5px);
+        }
+        50% {
+            opacity: 0.95;
+            transform: scale(1.02) translateY(0.5px);
+        }
+        100% {
+            opacity: 0.65;
+            transform: scale(0.97) translateY(-0.5px);
+        }
     }
 
     .mobile-nav-item {
@@ -4476,7 +4550,7 @@ body.sidebar-collapsed .main-content {
 }
 
 .mobile-bottom-nav.staged-enter {
-    animation: mobileDockFloatUp 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    animation: mobileDockFloatUp 1350ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     pointer-events: auto !important;
     will-change: transform, opacity, filter;
 }
@@ -4484,8 +4558,8 @@ body.sidebar-collapsed .main-content {
 @keyframes mobileDockFloatUp {
     0% {
         opacity: 0;
-        transform: translate(-50%, 90px) scale(0.92);
-        filter: blur(8px);
+        transform: translate(-50%, 95px) scale(0.9);
+        filter: blur(10px);
     }
     100% {
         opacity: 1;
@@ -4502,7 +4576,7 @@ body.sidebar-collapsed .main-content {
     right: 12%;
     height: 2px;
     background: linear-gradient(90deg, transparent 0%, var(--brand-primary) 50%, transparent 100%);
-    animation: mobileNavBeamSweep 1050ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: mobileNavBeamSweep 1350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     pointer-events: none;
     border-radius: var(--radius-full);
 }
@@ -4522,32 +4596,71 @@ body.sidebar-collapsed .main-content {
     }
 }
 
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(1) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+/* Staggered Ascending Sequential Entrance for Mobile Dock Numbers (01 -> 06) */
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(1) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 320ms both;
 }
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(2) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(2) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 480ms both;
 }
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(3) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 320ms both;
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(3) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 640ms both;
 }
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(4) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 390ms both;
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(4) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 800ms both;
 }
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(5) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 460ms both;
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(5) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 960ms both;
 }
-.mobile-bottom-nav.staged-enter .mobile-nav-item:nth-child(6) {
-    animation: mobileNavItemCascade 500ms cubic-bezier(0.16, 1, 0.3, 1) 530ms both;
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(6) .mobile-nav-num {
+    animation: mobileNumAscend 580ms cubic-bezier(0.16, 1, 0.3, 1) 1120ms both;
 }
 
-@keyframes mobileNavItemCascade {
+@keyframes mobileNumAscend {
     0% {
-        transform: translateY(12px) scale(0.9);
+        transform: translateY(16px) scale(0.65);
         opacity: 0;
+        filter: blur(5px);
+    }
+    65% {
+        transform: translateY(-2px) scale(1.08);
+        opacity: 0.95;
+        filter: blur(0);
     }
     100% {
         transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* Accompanying Staggered Labels */
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(1) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 380ms both;
+}
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(2) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 540ms both;
+}
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(3) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
+}
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(4) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 860ms both;
+}
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(5) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 1020ms both;
+}
+.mobile-bottom-nav.staged-enter a.mobile-nav-item:nth-of-type(6) .mobile-nav-label {
+    animation: mobileLabelFade 500ms cubic-bezier(0.16, 1, 0.3, 1) 1180ms both;
+}
+
+@keyframes mobileLabelFade {
+    0% {
+        transform: translateY(8px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }

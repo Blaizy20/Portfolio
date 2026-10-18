@@ -214,8 +214,7 @@ function initWelcomeScreen() {
             if (mobileNav) {
                 mobileNav.classList.remove('staged-hidden');
                 mobileNav.classList.add('staged-enter');
-                setTimeout(() => updateMobileGlassIndicator(false), 200);
-                setTimeout(() => updateMobileGlassIndicator(false), 800);
+                updateMobileGlassIndicator(false);
             }
 
             activeStageTimeout = setTimeout(() => {
@@ -403,7 +402,7 @@ function initWelcomeScreen() {
         if (mobileNav) {
             mobileNav.classList.remove('staged-hidden');
             mobileNav.classList.add('staged-enter');
-            setTimeout(() => updateMobileGlassIndicator(false), 50);
+            updateMobileGlassIndicator(false);
         }
 
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -1057,8 +1056,8 @@ window.updateSidebarGlassIndicator = updateSidebarGlassIndicator;
 
 /**
  * Sliding Liquid Glass Navigation Selector Indicator for Mobile Dock
- * Calculates the exact pixel coordinates of the active mobile nav item and smoothly glides
- * the physical liquid glass pill left/right with physics cubic-bezier easing.
+ * Calculates the exact layout offset coordinates of the active mobile nav item and smoothly glides
+ * the physical living liquid glass pill left/right with physics cubic-bezier easing.
  */
 function updateMobileGlassIndicator(animate = true) {
     const indicator = document.getElementById('mobileGlassIndicator');
@@ -1066,20 +1065,23 @@ function updateMobileGlassIndicator(animate = true) {
     const navInner = document.querySelector('.mobile-bottom-nav-inner');
     if (!indicator || !activeItem || !navInner) return;
 
-    const innerRect = navInner.getBoundingClientRect();
-    const itemRect = activeItem.getBoundingClientRect();
+    // Use invariant layout box dimensions and offsets so parent transforms & scaling never skew positions
+    const left = activeItem.offsetLeft;
+    const top = activeItem.offsetTop;
+    const width = activeItem.offsetWidth;
+    const height = activeItem.offsetHeight;
 
-    if (itemRect.width === 0 || itemRect.height === 0) return;
-
-    const top = itemRect.top - innerRect.top;
-    const left = itemRect.left - innerRect.left;
-    const width = itemRect.width;
-    const height = itemRect.height;
+    if (width === 0 || height === 0) return;
 
     if (!animate) {
         indicator.style.transition = 'none';
+        indicator.classList.remove('liquid-gliding');
     } else {
         indicator.style.transition = '';
+        indicator.classList.add('liquid-gliding');
+        setTimeout(() => {
+            indicator.classList.remove('liquid-gliding');
+        }, 380);
     }
 
     indicator.style.transform = `translate3d(${left}px, ${top}px, 0)`;
@@ -1251,14 +1253,17 @@ function initSpaRouter() {
     activateSection(initialHash || 'intro', false);
 
     // Initial positioning of liquid glass selectors without animation
+    updateSidebarGlassIndicator(false);
+    updateMobileGlassIndicator(false);
+
     setTimeout(() => {
         updateSidebarGlassIndicator(false);
         updateMobileGlassIndicator(false);
-    }, 60);
+    }, 100);
     setTimeout(() => {
         updateSidebarGlassIndicator(false);
         updateMobileGlassIndicator(false);
-    }, 320);
+    }, 350);
 
     // Auto-update indicators on viewport resize & orientation change
     window.addEventListener('resize', () => {
