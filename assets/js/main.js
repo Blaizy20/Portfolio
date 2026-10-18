@@ -1143,6 +1143,8 @@ function initSpaRouter() {
         mobileLinks.forEach(link => {
             const sec = link.getAttribute('data-section');
             if (sec === targetId) {
+                link.classList.remove('active');
+                void link.offsetHeight; // Force reflow to re-trigger spring bounce animation
                 link.classList.add('active');
                 link.setAttribute('aria-current', 'page');
             } else {
