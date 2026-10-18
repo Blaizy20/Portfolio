@@ -23,6 +23,11 @@
 </main>
 </div><!-- /.site-shell -->
 
+<?php
+require_once __DIR__ . '/resume_modal.php';
+require_once __DIR__ . '/mobile_nav.php';
+?>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>

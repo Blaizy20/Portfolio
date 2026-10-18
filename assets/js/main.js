@@ -54,26 +54,9 @@ function initWelcomeScreen() {
     let activeStageTimeout = null;
     let typeTimer = null;
 
-    // Check if welcome screen has already been shown in this session
+    // Clear any previous session cache so welcome screen consistently displays
     try {
-        if (sessionStorage.getItem('portfolio-welcome-seen') === 'true') {
-            welcomeScreen.style.display = 'none';
-            welcomeScreen.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('welcome-locked');
-            if (header) { header.classList.remove('staged-hidden'); header.classList.add('staged-enter'); }
-            if (sidebar) { sidebar.classList.remove('staged-hidden'); sidebar.classList.add('staged-enter'); }
-            if (content) { content.classList.remove('staged-hidden'); content.classList.add('staged-enter'); }
-            if (typewriterText) typewriterText.textContent = fullHeadline;
-            if (typewriterCursor) typewriterCursor.classList.add('is-hidden');
-            if (typewriterLead) typewriterLead.textContent = fullLeadText;
-            if (typewriterLeadCursor) typewriterLeadCursor.classList.add('is-hidden');
-            const introSub = document.getElementById('introSubtext');
-            if (introSub) {
-                introSub.classList.remove('staged-subtext-hidden');
-                introSub.classList.add('staged-subtext-visible');
-            }
-            return;
-        }
+        sessionStorage.removeItem('portfolio-welcome-seen');
     } catch (_) {}
 
     // Immediately lock page scroll while welcome card is present
@@ -322,9 +305,6 @@ function initWelcomeScreen() {
         // Smooth expanding transition: card expands outward to reveal empty template
         welcomeScreen.classList.add('is-expanding');
 
-        try {
-            sessionStorage.setItem('portfolio-welcome-seen', 'true');
-        } catch (_) {}
 
         activeStageTimeout = setTimeout(() => {
             welcomeScreen.style.display = 'none';
@@ -354,9 +334,6 @@ function initWelcomeScreen() {
         if (activeStageTimeout) clearTimeout(activeStageTimeout);
         if (typeTimer) clearTimeout(typeTimer);
 
-        try {
-            sessionStorage.setItem('portfolio-welcome-seen', 'true');
-        } catch (_) {}
 
         setPercent(100, 'Ready');
 
