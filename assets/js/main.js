@@ -12,6 +12,24 @@
  * 8. Accessible resume modal dialog with focus trap
  */
 
+// Force browser to disable automatic scroll restoration so page opens cleanly at (0, 0)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Clear any accidental URL fragment (#intro) on initial load so mobile browsers
+// don't natively jump past the sticky header to the section container
+if (window.location.hash === '#intro') {
+    try {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    } catch (_) {}
+}
+
+// Immediately reset scroll position before DOM is fully rendered
+window.scrollTo(0, 0);
+if (document.documentElement) document.documentElement.scrollTop = 0;
+if (document.body) document.body.scrollTop = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
     initWelcomeScreen();
     initInteractiveTutorial();
@@ -44,6 +62,7 @@ function initWelcomeScreen() {
     const header = document.getElementById('siteHeader');
     const sidebar = document.getElementById('siteSidebar');
     const content = document.getElementById('mainContent');
+    const mobileNav = document.getElementById('mobileBottomNav');
 
     const fullHeadline = 'Building web systems, database architectures, and IT solutions.';
     const fullLeadText = "Hi, I'm John Senen Estrella. I'm a 3rd year college student taking Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. This is my student portfolio: a place where I document coursework, projects, and the skills I'm developing along the way.";
@@ -59,13 +78,17 @@ function initWelcomeScreen() {
         sessionStorage.removeItem('portfolio-welcome-seen');
     } catch (_) {}
 
-    // Immediately lock page scroll while welcome card is present
+    // Immediately lock page scroll while welcome card is present and pin to top
     document.body.classList.add('welcome-locked');
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 
     // Ensure elements start hidden off-screen for staged entrance
     if (header) header.classList.add('staged-hidden');
     if (sidebar) sidebar.classList.add('staged-hidden');
     if (content) content.classList.add('staged-hidden');
+    if (mobileNav) mobileNav.classList.add('staged-hidden');
 
     // Clear texts initially so they start blank for typing
     if (typewriterText) typewriterText.textContent = '';
@@ -157,11 +180,17 @@ function initWelcomeScreen() {
     function runSequentialComponentPullIn(onComplete) {
         if (isFullyCompleted) return;
 
+        // Ensure viewport is pinned to (0, 0) before components enter
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
         const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (isReduced) {
             if (header) { header.classList.remove('staged-hidden'); header.classList.add('staged-enter'); }
             if (sidebar) { sidebar.classList.remove('staged-hidden'); sidebar.classList.add('staged-enter'); }
             if (content) { content.classList.remove('staged-hidden'); content.classList.add('staged-enter'); }
+            if (mobileNav) { mobileNav.classList.remove('staged-hidden'); mobileNav.classList.add('staged-enter'); }
             if (typeof onComplete === 'function') onComplete();
             return;
         }
@@ -176,11 +205,16 @@ function initWelcomeScreen() {
         activeStageTimeout = setTimeout(() => {
             if (isFullyCompleted) return;
 
-            // STEP 2: Left Sidebar pulls in slowly from left (~1450ms transition to clearly see it and sections pull out)
+            // STEP 2: Left Sidebar (Desktop) and Floating Dock (Mobile) pull in slowly (~1450ms / ~950ms transition)
             if (sidebar) {
                 sidebar.classList.remove('staged-hidden');
                 void sidebar.offsetHeight; // Force reflow
                 sidebar.classList.add('staged-enter');
+            }
+            if (mobileNav) {
+                mobileNav.classList.remove('staged-hidden');
+                void mobileNav.offsetHeight; // Force reflow
+                mobileNav.classList.add('staged-enter');
             }
 
             activeStageTimeout = setTimeout(() => {
@@ -201,7 +235,7 @@ function initWelcomeScreen() {
                         onComplete();
                     }
                 }, 1450); // Allow ample 1450ms for profile header, milestone cards, and terminal to cascade in
-            }, 1550); // Generous 1550ms wait so the slow sidebar pull-out and all 6 sections are fully watched
+            }, 1550); // Generous 1550ms wait so the slow sidebar/mobile dock pull-out is fully watched
         }, 1000);
     }
 
@@ -311,8 +345,18 @@ function initWelcomeScreen() {
             welcomeScreen.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('welcome-locked');
 
+            // Pin viewport to top when unlock happens
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
             // Hold on the clean blank canvas for 500ms so the empty canvas state is clearly visible!
             activeStageTimeout = setTimeout(() => {
+                // Pin scroll again right before staged components pull in
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+
                 // On the empty template shell, sequentially pull in UI components one by one, SLOWLY
                 runSequentialComponentPullIn(() => {
                     // ONLY once UI components are completely finished, type out texts one at a time!
@@ -355,6 +399,14 @@ function initWelcomeScreen() {
             content.classList.remove('staged-hidden');
             content.classList.add('staged-enter');
         }
+        if (mobileNav) {
+            mobileNav.classList.remove('staged-hidden');
+            mobileNav.classList.add('staged-enter');
+        }
+
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
 
         if (typewriterText) typewriterText.textContent = fullHeadline;
         if (typewriterCursor) typewriterCursor.classList.add('is-hidden');
@@ -1067,7 +1119,13 @@ function initSpaRouter() {
         }
 
         // Reset scroll position to top of view
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (updateHistory) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
 
         // If mobile drawer was open, close it
         const sidebar = document.getElementById('siteSidebar');
@@ -1087,6 +1145,17 @@ function initSpaRouter() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('data-section');
+            activateSection(target);
+        });
+    });
+
+    // Mobile bottom navigation dock item clicks with subtle tactile haptic
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-item[data-section]');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('data-section');
+            if (window.navigator?.vibrate) window.navigator.vibrate(8);
             activateSection(target);
         });
     });

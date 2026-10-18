@@ -32,7 +32,8 @@
             .welcome-screen { display: none !important; }
             .site-header.staged-hidden,
             .site-sidebar.staged-hidden,
-            .main-content.staged-hidden {
+            .main-content.staged-hidden,
+            .mobile-bottom-nav.staged-hidden {
                 opacity: 1 !important;
                 transform: none !important;
                 filter: none !important;
