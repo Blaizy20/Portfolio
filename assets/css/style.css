@@ -3466,6 +3466,64 @@ body.sidebar-collapsed .main-content {
         gap: 0.15rem;
         width: 100%;
         margin: 0;
+        position: relative;
+    }
+
+    /* Physical Sliding Liquid Glass Selector Indicator (Glides left/right between items) */
+    .mobile-liquid-glass-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+        border-radius: var(--radius-full);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 100%);
+        backdrop-filter: blur(20px) saturate(200%);
+        -webkit-backdrop-filter: blur(20px) saturate(200%);
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+                    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+                    0 0 18px rgba(59, 130, 246, 0.32);
+        opacity: 0;
+        transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
+                    width 360ms cubic-bezier(0.16, 1, 0.3, 1),
+                    height 360ms cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 200ms ease;
+        will-change: transform, width, height, opacity;
+    }
+
+    [data-theme="light"] .mobile-liquid-glass-indicator {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 244, 252, 0.9) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.14);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08),
+                    inset 0 1px 0 #ffffff,
+                    0 0 16px rgba(59, 130, 246, 0.16);
+    }
+
+    /* Glowing liquid glass capsule jewel accent dot */
+    .mobile-liquid-glass-indicator::before {
+        content: '';
+        position: absolute;
+        bottom: 3.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 2.5px;
+        border-radius: var(--radius-full);
+        background: linear-gradient(90deg, #93c5fd 0%, #3b82f6 50%, #2563eb 100%);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.95), 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Internal glass sheen refraction wave on mobile sliding selector */
+    .mobile-liquid-glass-indicator::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
+        pointer-events: none;
+        border-radius: inherit;
+        animation: liquidGlassRefract 5s ease-in-out infinite alternate;
     }
 
     .mobile-nav-item {
@@ -3481,7 +3539,9 @@ body.sidebar-collapsed .main-content {
         color: var(--text-muted);
         text-decoration: none;
         position: relative;
-        transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 2;
+        background: transparent !important;
+        transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
         touch-action: manipulation;
     }
 
@@ -3495,6 +3555,7 @@ body.sidebar-collapsed .main-content {
         font-weight: 700;
         line-height: 1;
         letter-spacing: -0.01em;
+        transition: color 0.2s ease;
     }
 
     .mobile-nav-label {
@@ -3503,12 +3564,13 @@ body.sidebar-collapsed .main-content {
         font-weight: 600;
         line-height: 1;
         letter-spacing: -0.01em;
+        transition: color 0.2s ease;
     }
 
     .mobile-nav-item.active {
         color: var(--text-primary);
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        background: transparent !important;
+        box-shadow: none !important;
     }
 
     .mobile-nav-item.active .mobile-nav-num {
@@ -3516,8 +3578,8 @@ body.sidebar-collapsed .main-content {
     }
 
     [data-theme="light"] .mobile-nav-item.active {
-        background: rgba(0, 0, 0, 0.06);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        background: transparent !important;
+        box-shadow: none !important;
     }
 
     [data-theme="light"] .mobile-nav-item.active .mobile-nav-num {
@@ -4411,17 +4473,25 @@ body.sidebar-collapsed .main-content {
     transform: translate(-50%, 90px) scale(0.92) !important;
     filter: blur(8px) !important;
     pointer-events: none !important;
-    transition: transform 950ms cubic-bezier(0.16, 1, 0.3, 1), opacity 950ms cubic-bezier(0.16, 1, 0.3, 1), filter 950ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-    will-change: transform, opacity, filter;
 }
 
 .mobile-bottom-nav.staged-enter {
-    opacity: 1 !important;
-    transform: translate(-50%, 0) scale(1) !important;
-    filter: blur(0) !important;
+    animation: mobileDockFloatUp 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     pointer-events: auto !important;
-    transition: transform 950ms cubic-bezier(0.16, 1, 0.3, 1), opacity 950ms cubic-bezier(0.16, 1, 0.3, 1), filter 950ms cubic-bezier(0.16, 1, 0.3, 1) !important;
     will-change: transform, opacity, filter;
+}
+
+@keyframes mobileDockFloatUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 90px) scale(0.92);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+        filter: blur(0);
+    }
 }
 
 .mobile-bottom-nav.staged-enter::after {
@@ -4915,6 +4985,9 @@ body.tutorial-active-lock {
     .mobile-bottom-nav.staged-enter,
     .mobile-bottom-nav.staged-enter::after,
     .mobile-bottom-nav.staged-enter .mobile-nav-item,
+    .mobile-liquid-glass-indicator,
+    .mobile-liquid-glass-indicator::after,
+    .mobile-liquid-glass-indicator::before,
     .intro-subtext.staged-subtext-hidden,
     .intro-subtext.staged-subtext-visible,
     .typewriter-cursor,

@@ -8,6 +8,9 @@
 ?>
 <nav class="mobile-bottom-nav staged-hidden" id="mobileBottomNav" aria-label="Mobile Bottom Navigation">
     <div class="mobile-bottom-nav-inner">
+        <!-- Physical Sliding Liquid Glass Selector Indicator (glides left/right between sections) -->
+        <div class="mobile-liquid-glass-indicator" id="mobileGlassIndicator" aria-hidden="true"></div>
+
         <a href="#intro" class="mobile-nav-item active" data-section="intro" aria-label="01 Introduction">
             <span class="mobile-nav-num">01</span>
             <span class="mobile-nav-label">Intro</span>

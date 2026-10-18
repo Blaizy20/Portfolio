@@ -213,8 +213,9 @@ function initWelcomeScreen() {
             }
             if (mobileNav) {
                 mobileNav.classList.remove('staged-hidden');
-                void mobileNav.offsetHeight; // Force reflow
                 mobileNav.classList.add('staged-enter');
+                setTimeout(() => updateMobileGlassIndicator(false), 200);
+                setTimeout(() => updateMobileGlassIndicator(false), 800);
             }
 
             activeStageTimeout = setTimeout(() => {
@@ -402,6 +403,7 @@ function initWelcomeScreen() {
         if (mobileNav) {
             mobileNav.classList.remove('staged-hidden');
             mobileNav.classList.add('staged-enter');
+            setTimeout(() => updateMobileGlassIndicator(false), 50);
         }
 
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -1054,6 +1056,45 @@ function updateSidebarGlassIndicator(animate = true) {
 window.updateSidebarGlassIndicator = updateSidebarGlassIndicator;
 
 /**
+ * Sliding Liquid Glass Navigation Selector Indicator for Mobile Dock
+ * Calculates the exact pixel coordinates of the active mobile nav item and smoothly glides
+ * the physical liquid glass pill left/right with physics cubic-bezier easing.
+ */
+function updateMobileGlassIndicator(animate = true) {
+    const indicator = document.getElementById('mobileGlassIndicator');
+    const activeItem = document.querySelector('.mobile-nav-item.active');
+    const navInner = document.querySelector('.mobile-bottom-nav-inner');
+    if (!indicator || !activeItem || !navInner) return;
+
+    const innerRect = navInner.getBoundingClientRect();
+    const itemRect = activeItem.getBoundingClientRect();
+
+    if (itemRect.width === 0 || itemRect.height === 0) return;
+
+    const top = itemRect.top - innerRect.top;
+    const left = itemRect.left - innerRect.left;
+    const width = itemRect.width;
+    const height = itemRect.height;
+
+    if (!animate) {
+        indicator.style.transition = 'none';
+    } else {
+        indicator.style.transition = '';
+    }
+
+    indicator.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+    indicator.style.width = `${width}px`;
+    indicator.style.height = `${height}px`;
+    indicator.style.opacity = '1';
+
+    if (!animate) {
+        void indicator.offsetHeight; // Force reflow
+        indicator.style.transition = '';
+    }
+}
+window.updateMobileGlassIndicator = updateMobileGlassIndicator;
+
+/**
  * 4. SPA Section View Router (01 - 06)
  * Displays only one focused section at a time without continuous scrolling.
  */
@@ -1108,8 +1149,9 @@ function initSpaRouter() {
             }
         });
 
-        // Glide the physical liquid glass selector indicator up/down to the newly selected section!
+        // Glide the physical liquid glass selector indicators (Desktop: up/down, Mobile: left/right)!
         updateSidebarGlassIndicator(true);
+        updateMobileGlassIndicator(true);
 
         // Update URL hash without causing a default jump
         if (updateHistory) {
@@ -1208,14 +1250,33 @@ function initSpaRouter() {
     const initialHash = window.location.hash.replace('#', '');
     activateSection(initialHash || 'intro', false);
 
-    // Initial positioning of liquid glass selector without animation
-    setTimeout(() => updateSidebarGlassIndicator(false), 60);
-    setTimeout(() => updateSidebarGlassIndicator(false), 320);
+    // Initial positioning of liquid glass selectors without animation
+    setTimeout(() => {
+        updateSidebarGlassIndicator(false);
+        updateMobileGlassIndicator(false);
+    }, 60);
+    setTimeout(() => {
+        updateSidebarGlassIndicator(false);
+        updateMobileGlassIndicator(false);
+    }, 320);
 
-    // Auto-update indicator on viewport resize
+    // Auto-update indicators on viewport resize & orientation change
     window.addEventListener('resize', () => {
         updateSidebarGlassIndicator(false);
+        updateMobileGlassIndicator(false);
     });
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            updateSidebarGlassIndicator(false);
+            updateMobileGlassIndicator(false);
+        }, 150);
+    });
+    if (document.fonts?.ready) {
+        document.fonts.ready.then(() => {
+            updateSidebarGlassIndicator(false);
+            updateMobileGlassIndicator(false);
+        });
+    }
 }
 
 /**
