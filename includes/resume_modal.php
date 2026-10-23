@@ -53,9 +53,14 @@
             <section class="resume-section">
                 <h3 class="resume-section-heading">Education &amp; Credentials</h3>
                 <div class="resume-education-card">
-                    <div>
-                        <div class="resume-degree"><?= htmlspecialchars($data['resume']['education']['degree']) ?></div>
-                        <div class="resume-institution"><?= htmlspecialchars($data['resume']['education']['institution']) ?></div>
+                    <div class="resume-education-main">
+                        <div class="resume-campus-logo-wrap" title="National University">
+                            <?= render_icon('nu-logo', 'resume-campus-logo') ?>
+                        </div>
+                        <div>
+                            <div class="resume-degree"><?= htmlspecialchars($data['resume']['education']['degree']) ?></div>
+                            <div class="resume-institution"><?= htmlspecialchars($data['resume']['education']['institution']) ?></div>
+                        </div>
                     </div>
                     <div class="resume-education-meta">
                         <span><?= htmlspecialchars($data['resume']['education']['period']) ?></span>

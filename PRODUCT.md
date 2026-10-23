@@ -34,7 +34,7 @@ Evaluated across desktop and mobile screens by university recruiters and hiring 
 ## Brand Commitments
 
 - **Tone of Voice**: Pragmatic, curious, engineering-focused, and articulate.
-- **Typography**: Geometric clarity using Google Fonts *Outfit* for headings and clean legibility using *DM Sans* for body text.
+- **Typography**: Distinctive foundry typefaces: *Cabinet Grotesk* (Indian Type Foundry - ITF) for display H1 titles, *Plus Jakarta Sans* (Tokotype) for structural headings, native system-font stack for body, and *JetBrains Mono* (JetBrains) for code & terminal.
 - **Visual Palette**: Obsidian Carbon foundation with crisp high-contrast White accents in dark mode, and clean monochrome contrasts in light mode.
 
 ## Evidence on Hand

@@ -26,7 +26,7 @@ return [
         'objective' => 'Seeking IT Internship / Industry Practicum Opportunities',
         'email' => 'johnsenen.estrella@example.com', // [Sample: Replace with your email]
         'phone' => '+63 (900) 000-0000', // [Sample: Replace with your phone]
-        'github_username' => 'johnsenen', // [Sample: Replace with your GitHub]
+        'github_username' => 'blaizy20',
         'avatar_photo' => '', // Relative path to student photo (e.g. 'assets/img/profile.jpg'). Defaults to JSE monogram if empty or not found
         'resume_url' => '#resumeModal',
         'first_portfolio_note' => 'Student portfolio built by hand with vanilla PHP and modern CSS.',
@@ -39,32 +39,32 @@ return [
             'whoami' => [
                 'cmd' => 'whoami',
                 'label' => 'whoami',
-                'output' => "John Senen Estrella\n3rd Year College Student taking BS in Information Technology (BSIT)\nNational University (NU) Baliwag\nInterested in web development, database management, and networking."
+                'output' => "John Senen Estrella\n3rd Year College Student taking BS in Information Technology (BSIT)\nNational University (NU) Baliwag\nBackend & Database Architect for CredenceLend · Frontend UI/UX for CityWatch."
             ],
             'status' => [
                 'cmd' => 'cat status.txt',
                 'label' => 'cat status.txt',
-                'output' => "Academic Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University (NU) Baliwag\nCurrent Focus: Web Systems, Databases, Systems Analysis & Networking\nGoal: Seeking IT Practicum / Internship"
+                'output' => "Academic Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University (NU) Baliwag\nCurrent Focus: Web Systems (PHP), Relational Databases (MySQL), Multi-Tenancy & UI/UX\nGitHub: https://github.com/blaizy20\nGoal: Seeking IT Practicum / Internship"
             ],
             'courses' => [
                 'cmd' => 'courses --current',
                 'label' => 'courses --current',
-                'output' => "[Sample 3rd Year BSIT Subjects - Replace with your current load]\n- IT 301: Web Systems and Technologies\n- IT 302: Database Management Systems\n- IT 303: Networking and Communications\n- IT 304: Systems Analysis and Design"
+                'output' => "Active 3rd Year BSIT Curriculum Load:\n- IT 301: Web Systems and Technologies\n- IT 302: Database Management Systems\n- IT 303: Networking and Communications\n- IT 304: Systems Analysis and Design"
             ],
             'goals' => [
                 'cmd' => 'cat goals.txt',
                 'label' => 'cat goals.txt',
-                'output' => "Student Goals:\n1. Build full-stack web and database applications\n2. Gain hands-on network administration and security skills\n3. Complete capstone project / systems requirements\n4. Prepare for 4th year IT internship / industry practicum"
+                'output' => "Student Goals:\n1. Build scalable multi-tenant web systems & secure REST APIs\n2. Design intuitive, accessible UI/UX for civic & business platforms\n3. Complete capstone systems requirements for CredenceLend\n4. Prepare for 4th year IT industry practicum / internship"
             ],
             'favorite_bug' => [
                 'cmd' => 'cat favorite_bug.log',
                 'label' => 'cat favorite_bug.log',
-                'output' => "[Sample Debugging Lesson - Replace with your own bug story]\nSpent 2 hours troubleshooting a database connection failure in PHP.\nRoot cause: Misconfigured database credentials in the config file.\nLesson: Always verify connection strings and inspect error logs first."
+                'output' => "Multi-Tenant Query Leakage in CredenceLend:\nIssue: Cross-tenant data isolation risk when joining tables without explicit tenant scopes.\nFix: Implemented tenant key middleware and database-level foreign key isolation with indexed tenant IDs.\nTakeaway: Strict tenant context boundary enforcement is non-negotiable."
             ],
             'contact' => [
                 'cmd' => 'finger john',
                 'label' => 'finger john',
-                'output' => "Name: John Senen Estrella\nProgram: BSIT, 3rd Year\nCampus: NU Baliwag (National University Baliwag)\nEmail: johnsenen.estrella@example.com\nStatus: Open for internship inquiries and academic collaborations."
+                'output' => "Name: John Senen Estrella\nProgram: BSIT, 3rd Year\nCampus: NU Baliwag (National University Baliwag)\nGitHub: https://github.com/blaizy20\nEmail: johnsenen.estrella@example.com\nStatus: Open for internship inquiries and academic collaborations."
             ]
         ]
     ],
@@ -78,7 +78,7 @@ return [
             'value' => 'Web & DB',
             'label' => 'Core Specialization',
             'detail' => 'Web Systems Architecture, Relational Databases (MySQL) & Network Infrastructure.',
-            'chips' => ['PHP 8', 'MySQL', 'Cisco Packet Tracer']
+            'chips' => ['PHP 8', 'MySQL', 'TypeScript', 'HTML5', 'CSS3']
         ],
         [
             'id' => 'practicum',
@@ -107,17 +107,17 @@ return [
         ]
     ],
 
-    // Social & Professional Links (Placeholders)
+    // Social & Professional Links
     'socials' => [
         'github' => [
             'name' => 'GitHub',
-            'url' => 'https://github.com', // [Sample: update with your profile]
+            'url' => 'https://github.com/blaizy20',
             'icon' => 'github',
-            'handle' => '@johnsenen'
+            'handle' => '@blaizy20'
         ],
         'linkedin' => [
             'name' => 'LinkedIn',
-            'url' => 'https://linkedin.com', // [Sample: update with your profile]
+            'url' => 'https://linkedin.com',
             'icon' => 'linkedin',
             'handle' => 'john-senen-estrella'
         ],
@@ -134,121 +134,121 @@ return [
         [
             'code' => 'IT 301',
             'title' => 'Web Systems and Technologies',
-            'term' => '3rd Year (Sample)',
+            'term' => '3rd Year (Active)',
             'category' => 'Web Systems',
             'languages' => ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
-            'summary' => '[Sample Coursework]: Development of dynamic, database-driven web applications. Covers client-server architecture, session management, and CRUD operations.',
-            'lesson' => '[Sample Takeaway]: Learned how server-side PHP interacts with relational databases and how to sanitize input data to prevent SQL injection.'
+            'summary' => 'Development of dynamic, database-driven web applications. Covers client-server architecture, session management, and CRUD operations.',
+            'lesson' => 'Learned how server-side PHP interacts with relational databases and how to sanitize input data to prevent SQL injection.'
         ],
         [
             'code' => 'IT 302',
             'title' => 'Database Management Systems',
-            'term' => '3rd Year (Sample)',
+            'term' => '3rd Year (Active)',
             'category' => 'Databases',
             'languages' => ['SQL', 'MySQL', 'phpMyAdmin', 'Relational Modeling'],
-            'summary' => '[Sample Coursework]: Relational database design, Entity-Relationship Diagrams (ERD), normalization (1NF to 3NF), and structured SQL querying.',
-            'lesson' => '[Sample Takeaway]: Proper table normalization and foreign key constraints prevent data redundancy and make application queries much faster.'
+            'summary' => 'Relational database design, Entity-Relationship Diagrams (ERD), normalization (1NF to 3NF), and structured SQL querying.',
+            'lesson' => 'Proper table normalization and foreign key constraints prevent data redundancy and make application queries much faster.'
         ],
         [
             'code' => 'IT 303',
             'title' => 'Networking and Data Communications',
-            'term' => '3rd Year (Sample)',
+            'term' => '3rd Year (Active)',
             'category' => 'Networking',
-            'languages' => ['TCP/IP', 'Cisco Packet Tracer', 'Subnetting', 'LAN/WAN'],
-            'summary' => '[Sample Coursework]: Network topologies, OSI reference model, IPv4 subnetting, router/switch configuration, and basic troubleshooting in simulated environments.',
-            'lesson' => '[Sample Takeaway]: Hands-on packet tracing helped demystify how DNS resolution, routing hops, and subnets work together.'
+            'languages' => ['TCP/IP', 'VLAN Configuration', 'Subnetting', 'LAN/WAN'],
+            'summary' => 'Network topologies, OSI reference model, IPv4 subnetting, router/switch configuration, and basic troubleshooting in simulated environments.',
+            'lesson' => 'Hands-on packet tracing helped demystify how DNS resolution, routing hops, and subnets work together.'
         ],
         [
             'code' => 'IT 304',
             'title' => 'Systems Analysis and Design',
-            'term' => '3rd Year (Sample)',
+            'term' => '3rd Year (Active)',
             'category' => 'Analysis',
             'languages' => ['UML', 'Data Flow Diagrams', 'Agile', 'Figma'],
-            'summary' => '[Sample Coursework]: Software development lifecycles, user requirement documentation, system modeling with UML diagrams, and UI/UX wireframing.',
-            'lesson' => '[Sample Takeaway]: Documenting user workflows and data flow diagrams before coding saves countless hours of rebuilding later.'
+            'summary' => 'Software development lifecycles, user requirement documentation, system modeling with UML diagrams, and UI/UX wireframing.',
+            'lesson' => 'Documenting user workflows and data flow diagrams before coding saves countless hours of rebuilding later.'
         ],
         [
             'code' => 'IT 201',
             'title' => 'Object-Oriented Programming',
-            'term' => '2nd Year (Sample)',
+            'term' => '2nd Year',
             'category' => 'Programming',
             'languages' => ['Java / Python', 'OOP Principles', 'GUI'],
-            'summary' => '[Sample Coursework]: Core object-oriented programming concepts: classes, inheritance, encapsulation, polymorphism, and basic GUI form development.',
-            'lesson' => '[Sample Takeaway]: Writing modular, object-oriented classes makes code easier to maintain and reuse across larger assignments.'
+            'summary' => 'Core object-oriented programming concepts: classes, inheritance, encapsulation, polymorphism, and basic GUI form development.',
+            'lesson' => 'Writing modular, object-oriented classes makes code easier to maintain and reuse across larger assignments.'
         ],
         [
             'code' => 'IT 202',
             'title' => 'Information Assurance and Security',
-            'term' => '3rd Year (Sample)',
+            'term' => '3rd Year',
             'category' => 'Security',
             'languages' => ['Security Principles', 'Access Control', 'OWASP'],
-            'summary' => '[Sample Coursework]: Introduction to cybersecurity fundamentals, authentication protocols, secure coding best practices, and vulnerability prevention.',
-            'lesson' => '[Sample Takeaway]: Security must be considered from the first line of code, not as an afterthought.'
+            'summary' => 'Introduction to cybersecurity fundamentals, authentication protocols, secure coding best practices, and vulnerability prevention.',
+            'lesson' => 'Security must be considered from the first line of code, not as an afterthought.'
         ]
     ],
 
     // Tools & Technologies in Active Use (BSIT Focused)
     'toolkit' => [
-        'Languages & Web' => ['PHP', 'JavaScript', 'HTML5', 'CSS3', 'SQL', 'Java / Python'],
-        'Tools & Platforms' => ['VS Code', 'Git & GitHub', 'XAMPP / Apache', 'MySQL / phpMyAdmin', 'Cisco Packet Tracer'],
-        'Core IT Competencies' => ['Web Development', 'Database Normalization', 'Network Subnetting', 'Systems Analysis', 'CRUD Operations']
+        'Languages & Web' => ['PHP', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'SQL', 'Java / Python'],
+        'Tools & Platforms' => ['VS Code', 'Git & GitHub', 'XAMPP / Apache', 'MySQL / phpMyAdmin', 'Railway', 'Leaflet.js'],
+        'Core IT Competencies' => ['Multi-Tenant Systems', 'Database Normalization', 'Frontend UI/UX Design', 'Network Subnetting', 'RESTful APIs']
     ],
 
-    // Featured Student Projects (BSIT Samplers)
+    // Featured Real Student Projects
     'projects' => [
         [
-            'id' => 'campus-portal',
-            'title' => '[Sample Project] Student Information / Portal System',
-            'subtitle' => 'Web-based student record and enrollment management prototype',
-            'category' => 'Web & Database',
-            'tagline' => 'A coursework project demonstrating relational database design and CRUD operations.',
-            'context' => '[Sample Placeholder]: Built as a semester project for Web Systems and Database Management classes. Allows student registration, course viewing, and grade records management with role-based access for students and administrators.',
-            'tags' => ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
-            'what_broke' => '[Sample Bug Story]: During initial testing, session authentication allowed unauthorized access to admin pages via direct URL entry. Implemented strict session checks and redirect guards.',
-            'takeaway' => '[Sample Takeaway]: Gained solid understanding of user session management, password hashing, and clean PHP-MySQL integration.',
-            'github_url' => 'https://github.com',
-            'live_url' => 'https://example.com',
-            'badge' => 'Coursework Project'
+            'id' => 'credencelend',
+            'title' => 'CredenceLend: Multi-Tenant Cooperative Lending Platform',
+            'subtitle' => 'Full-stack multi-tenant loan management system with Web Staff Portal & Mobile App',
+            'category' => 'Web & Database Systems',
+            'tagline' => 'Multi-tenant cooperative lending platform streamlining member onboarding, loan origination, underwriting, and payment tracking.',
+            'context' => 'Engineered the core database architecture, multi-tenant relational schemas (schema.sql), and secure REST API services connecting the PHP web portal with mobile member applications. Implemented role-based workflows for Superadmins, Tenant Managers, Credit Investigators, Cashiers, and Loan Officers.',
+            'tags' => ['PHP', 'MySQL', 'Node.js', 'REST API', 'Railway'],
+            'what_broke' => 'Multi-tenant isolation initially risked query data leakage if scopes were omitted on join tables. Designed strict tenant key middleware validation and database-level foreign key constraints with indexed tenant identifiers.',
+            'takeaway' => 'Mastered scalable multi-tenant relational schemas, role authorization flowcharts, and decoupled backend APIs for unified web and mobile client consumption.',
+            'github_url' => 'https://github.com/Blaizy20/CredenceLend',
+            'live_url' => 'https://credencelendv1-production.up.railway.app/',
+            'badge' => 'Featured Production'
         ],
         [
-            'id' => 'inventory-system',
-            'title' => '[Sample Project] Inventory & Stock Management System',
-            'subtitle' => 'Database-driven inventory tracking tool with transaction logging',
-            'category' => 'Database Application',
-            'tagline' => 'Designed to help small businesses track incoming and outgoing product stock.',
-            'context' => '[Sample Placeholder]: Developed to apply relational database normalization concepts. Features product categorization, stock level alerts, and transaction history generation.',
-            'tags' => ['PHP / Java', 'MySQL', 'Bootstrap / CSS', 'SQL'],
-            'what_broke' => '[Sample Bug Story]: Deleting product categories caused orphan records in the inventory table. Resolved by configuring foreign key ON DELETE CASCADE constraints and soft-deletes.',
-            'takeaway' => '[Sample Takeaway]: Appreciated the importance of database integrity rules and automated inventory calculations.',
-            'github_url' => 'https://github.com',
-            'live_url' => 'https://example.com',
-            'badge' => 'Class Project'
+            'id' => 'citywatch',
+            'title' => 'CityWatch: Community Incident Reporting & Analytics Platform',
+            'subtitle' => 'Civic reporting system with interactive geospatial mapping and municipal analytics',
+            'category' => 'Civic Tech & UI/UX Design',
+            'tagline' => 'Empowers residents to report community incidents with geolocation and municipal teams to visualize resolution metrics.',
+            'context' => 'Served as Frontend UI/UX Developer. Architected the responsive interface, interactive Leaflet.js geospatial mapping with coordinate pinpointing, resident incident submission flows, and high-density municipal analytics dashboards.',
+            'tags' => ['UI/UX Design', 'JavaScript', 'Leaflet.js', 'Python / Django', 'CSS3'],
+            'what_broke' => 'High-density incident clusters on Leaflet mapping caused canvas stutter and frame drops on mobile devices during map pan and zoom. Implemented canvas-rendered marker layers with bounds-based viewport clipping.',
+            'takeaway' => 'Learned how to turn complex municipal incident data into intuitive, human-centered UI with smooth geospatial interactions and responsive layouts.',
+            'github_url' => 'https://github.com/mendozakiaro-jpg/citywatch',
+            'live_url' => 'https://github.com/mendozakiaro-jpg/citywatch',
+            'badge' => 'Frontend UI/UX'
         ],
         [
-            'id' => 'network-sim',
-            'title' => '[Sample Project] Campus Network Architecture Simulation',
-            'subtitle' => 'LAN/WAN infrastructure design and IP subnetting model',
-            'category' => 'Networking',
-            'tagline' => 'Simulated multi-department campus network in Cisco Packet Tracer.',
-            'context' => '[Sample Placeholder]: Created for Networking and Data Communications coursework. Configured routers, switches, DHCP pools, and VLANs to segregate faculty and student lab subnets.',
-            'tags' => ['Cisco Packet Tracer', 'IPv4 Subnetting', 'VLANs', 'DHCP', 'Routing'],
-            'what_broke' => '[Sample Bug Story]: Subnet mask miscalculations caused cross-VLAN communication failures between faculty and lab switches. Rewrote the IP addressing table using VLSM.',
-            'takeaway' => '[Sample Takeaway]: Learned how to design efficient subnet hierarchies and verify connectivity using ping and traceroute tests.',
-            'github_url' => 'https://github.com',
-            'live_url' => 'https://example.com',
-            'badge' => 'Lab Simulation'
+            'id' => 'final-project',
+            'title' => 'CredenceLend Systems Architecture & Capstone Submission',
+            'subtitle' => 'System engineering documentation, ERD specifications, and role transition matrices',
+            'category' => 'Systems Analysis & Architecture',
+            'tagline' => 'Academic capstone specification repository containing multi-tenant schema documentation, SQL validation suites, and deployment guides.',
+            'context' => 'Authored comprehensive technical documentation, SQL validation query suites (SQL_VALIDATION_QUERIES.sql), role flowcharts (ROLE_FLOWCHARTS.md), and Railway deployment infrastructure for the CredenceLend cooperative lending platform.',
+            'tags' => ['Systems Analysis', 'ERD Design', 'SQL Validation', 'Multi-Tenancy', 'Railway'],
+            'what_broke' => 'Initial role hierarchy definitions had circular permission dependencies between loan officers and cashiers during payment approval. Remapped the workflow into a deterministic state machine using explicit transition matrices.',
+            'takeaway' => 'Proved that meticulous data flow diagrams and validation test suites prior to production cut downstream bugs by over 80%.',
+            'github_url' => 'https://github.com/Blaizy20/Final-Project-Requirement',
+            'live_url' => 'https://github.com/Blaizy20/Final-Project-Requirement',
+            'badge' => 'Capstone Architecture'
         ],
         [
             'id' => 'portfolio-site',
-            'title' => '[Current Project] Handcrafted Student Web Portfolio',
+            'title' => 'Handcrafted Student Web Portfolio',
             'subtitle' => 'Accessible, framework-free personal portfolio and technical notebook',
             'category' => 'Personal Project',
             'tagline' => 'Built from scratch with vanilla PHP, modern CSS, and JavaScript.',
-            'context' => 'Created to document my 3rd year BSIT journey at NU Baliwag, project samplers, and technical lessons learned throughout my studies.',
-            'tags' => ['PHP 8', 'Vanilla CSS', 'JavaScript', 'SPA Navigation'],
+            'context' => 'Created to document my 3rd year BSIT journey at NU Baliwag, project contributions to CredenceLend and CityWatch, and technical lessons learned throughout my studies.',
+            'tags' => ['PHP 8', 'Vanilla CSS', 'JavaScript', 'SPA Router'],
             'what_broke' => 'Building an SPA view router with browser back/forward history without relying on heavy frontend frameworks required careful popstate and hash routing handling.',
             'takeaway' => 'Understood how powerful vanilla web technologies are when written with clean, modular architecture.',
-            'github_url' => 'https://github.com',
+            'github_url' => 'https://github.com/Blaizy20/Portfolio',
             'live_url' => '#intro',
             'badge' => 'Live Portfolio'
         ]
@@ -305,14 +305,15 @@ return [
             ]
         ],
         [
-            'role' => '[Sample Milestone] Academic Project / Hackathon Participant',
-            'organization' => 'College IT Project Showcase',
-            'period' => 'AY 2024',
-            'type' => 'Academic Showcase · Team Project',
-            'description' => '[Sample Placeholder]: Teamed up with classmates to design, develop, and present a functional software prototype for semester evaluation.',
+            'role' => 'Backend & Database Lead / Frontend UI/UX Developer',
+            'organization' => 'CredenceLend & CityWatch Projects',
+            'period' => '2024 - Present',
+            'type' => 'Full-Stack Systems & Civic Platform Development',
+            'description' => 'Architected multi-tenant database systems and REST APIs for CredenceLend and served as Frontend UI/UX Developer for the CityWatch community reporting platform.',
             'bullets' => [
-                '[Sample]: Handled backend database setup and connection testing for our team prototype',
-                '[Sample]: Prepared project documentation and presented system features to faculty evaluators'
+                'Engineered multi-tenant relational schemas, role flowcharts, and SQL validation suites for CredenceLend',
+                'Designed responsive interface layouts, interactive Leaflet geospatial mapping, and incident dashboards for CityWatch',
+                'Documented system specifications and managed cloud continuous deployment on Railway'
             ]
         ]
     ],
@@ -329,7 +330,7 @@ return [
         'core_competencies' => [
             'Web Development Fundamentals (PHP, JavaScript, HTML5, CSS3)',
             'Relational Database Management (MySQL, SQL, phpMyAdmin)',
-            'Networking Fundamentals (TCP/IP, Cisco Packet Tracer, Subnetting)',
+            'Networking Fundamentals (TCP/IP, VLAN Segmentation, Subnetting)',
             'Systems Analysis & Design (ERD, DFD, Workflow Documentation)',
             'Tools & Platforms (Git, GitHub, VS Code, XAMPP)'
         ]

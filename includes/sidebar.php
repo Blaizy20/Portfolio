@@ -11,13 +11,19 @@
             <?= render_icon('close') ?>
         </button>
 
-        <!-- In-Sidebar Section Header (Collapse buttons removed) -->
+        <!-- In-Sidebar Section Header with Dedicated Collapse Button -->
         <div class="sidebar-header-row">
             <span class="sidebar-header-title">Sections</span>
-            <span class="sidebar-header-badge" aria-hidden="true">01–06</span>
+            <div class="sidebar-header-actions">
+                <span class="sidebar-header-badge" aria-hidden="true">01–03</span>
+                <button type="button" class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse navigation bar" title="Collapse navigation (Ctrl+B)">
+                    <span class="icon-collapse"><?= render_icon('sidebar-collapse') ?></span>
+                    <span class="icon-expand"><?= render_icon('sidebar-expand') ?></span>
+                </button>
+            </div>
         </div>
 
-        <!-- Section Navigation: 01 - 06 Only -->
+        <!-- Section Navigation: 01 - 03 Only -->
         <nav class="sidebar-nav" aria-label="Sections">
             <ul class="sidebar-nav-list" id="sidebarNavList">
                 <li>
@@ -28,38 +34,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#coursework" class="sidebar-nav-link" data-section="coursework" data-title="Coursework">
-                        <span class="nav-num">02</span>
-                        <span class="nav-text">Coursework</span>
-                        <span class="nav-tooltip" aria-hidden="true">02 · Coursework</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#projects" class="sidebar-nav-link" data-section="projects" data-title="Projects">
-                        <span class="nav-num">03</span>
+                        <span class="nav-num">02</span>
                         <span class="nav-text">Projects</span>
-                        <span class="nav-tooltip" aria-hidden="true">03 · Projects</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#notes" class="sidebar-nav-link" data-section="notes" data-title="Lab Notes">
-                        <span class="nav-num">04</span>
-                        <span class="nav-text">Lab Notes</span>
-                        <span class="nav-tooltip" aria-hidden="true">04 · Lab Notes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#experience" class="sidebar-nav-link" data-section="experience" data-title="Campus &amp; Clubs">
-                        <span class="nav-num">05</span>
-                        <span class="nav-text">Campus &amp; Clubs</span>
-                        <span class="nav-tooltip" aria-hidden="true">05 · Campus &amp; Clubs</span>
+                        <span class="nav-tooltip" aria-hidden="true">02 · Projects</span>
                     </a>
                 </li>
                 <li>
                     <a href="#contact" class="sidebar-nav-link" data-section="contact" data-title="Contact">
-                        <span class="nav-num">06</span>
+                        <span class="nav-num">03</span>
                         <span class="nav-text">Contact</span>
-                        <span class="nav-tooltip" aria-hidden="true">06 · Contact</span>
+                        <span class="nav-tooltip" aria-hidden="true">03 · Contact</span>
                     </a>
                 </li>
                 <!-- Physical Sliding Liquid Glass Selector Indicator -->

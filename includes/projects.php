@@ -9,118 +9,128 @@
  */
 function render_student_project_diagram(string $id): string {
     switch ($id) {
-        case 'campus-portal':
+        case 'credencelend':
             return <<<SVG
-            <svg class="project-diagram-svg" viewBox="0 0 460 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- Browser Client -->
-                <rect x="20" y="45" width="105" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="72" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Student UI</text>
-                <text x="72" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">Forms &amp; Session</text>
+            <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Staff Portal & Mobile -->
+                <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#3b82f6" stroke-width="1.4"/>
+                <text x="87.5" y="50" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Staff Web Portal</text>
+                <text x="87.5" y="68" fill="#93c5fd" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Admin &amp; Cashier</text>
+                <line x1="30" y1="78" x2="145" y2="78" stroke="rgba(255,255,255,0.1)"/>
+                <text x="87.5" y="96" fill="#a1a1aa" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Mobile Member App</text>
 
-                <!-- Arrow 1 -->
-                <line x1="130" y1="75" x2="165" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="163,71 170,75 163,79" fill="#ffffff"/>
+                <!-- Arrow 1 (Cleanly positioned in 35px gap) -->
+                <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="189,66 195,70 189,74" fill="#ffffff"/>
 
-                <!-- PHP 8 PDO Application Server -->
-                <rect x="175" y="40" width="130" height="70" rx="6" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="240" y="68" fill="#ffffff" font-size="13" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle">PHP 8 PDO Layer</text>
-                <text x="240" y="86" fill="#d1d5db" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">Prepared Queries</text>
-                <text x="240" y="100" fill="#a1a1aa" font-size="11" font-family="'JetBrains Mono', monospace" text-anchor="middle">Role-Based Auth</text>
+                <!-- REST API & Tenant Middleware -->
+                <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#8b5cf6" stroke-width="1.5"/>
+                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">RESTful API Core</text>
+                <text x="270" y="74" fill="#c4b5fd" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Tenant Middleware</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Role-Based Guard</text>
 
-                <!-- Arrow 2 -->
-                <line x1="310" y1="75" x2="345" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="343,71 350,75 343,79" fill="#ffffff"/>
+                <!-- Arrow 2 (Cleanly positioned in 35px gap) -->
+                <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="374,66 380,70 374,74" fill="#ffffff"/>
 
-                <!-- MySQL Database -->
-                <rect x="355" y="45" width="90" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="400" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">MySQL</text>
-                <text x="400" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">students.db</text>
+                <!-- Multi-Tenant MySQL -->
+                <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#0ea5e9" stroke-width="1.4"/>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Multi-Tenant DB</text>
+                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">MySQL Schema</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">FK Audit Ledgers</text>
             </svg>
 SVG;
 
-        case 'inventory-system':
+        case 'citywatch':
             return <<<SVG
-            <svg class="project-diagram-svg" viewBox="0 0 460 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- POS Interface -->
-                <rect x="20" y="45" width="100" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="70" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Stock Entry</text>
-                <text x="70" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">SKU / Quantity</text>
+            <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Resident UI -->
+                <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#f59e0b" stroke-width="1.4"/>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Resident UI / UX</text>
+                <text x="87.5" y="74" fill="#fcd34d" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Incident Reporting</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">GPS Geolocation</text>
 
                 <!-- Arrow 1 -->
-                <line x1="125" y1="75" x2="165" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="163,71 170,75 163,79" fill="#ffffff"/>
+                <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="189,66 195,70 189,74" fill="#ffffff"/>
 
-                <!-- Transaction Engine -->
-                <rect x="175" y="45" width="125" height="60" rx="6" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="237" y="72" fill="#ffffff" font-size="13" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle">ACID Manager</text>
-                <text x="237" y="90" fill="#d1d5db" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">Commit / Rollback</text>
+                <!-- Leaflet Mapping & Django Engine -->
+                <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#10b981" stroke-width="1.5"/>
+                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Leaflet.js Engine</text>
+                <text x="270" y="74" fill="#6ee7b7" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Map Coordinate Pin</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Django API Core</text>
 
                 <!-- Arrow 2 -->
-                <line x1="305" y1="75" x2="340" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="338,71 345,75 338,79" fill="#ffffff"/>
+                <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="374,66 380,70 374,74" fill="#ffffff"/>
 
-                <!-- Relational Schema -->
-                <rect x="350" y="45" width="95" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="397" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Audit Log</text>
-                <text x="397" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">FK Constraints</text>
+                <!-- Municipal Analytics -->
+                <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#38bdf8" stroke-width="1.4"/>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Municipal Dash</text>
+                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Live Heatmaps</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Resolution Stats</text>
             </svg>
 SVG;
 
-        case 'network-sim':
+        case 'final-project':
             return <<<SVG
-            <svg class="project-diagram-svg" viewBox="0 0 460 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- Gateway Router -->
-                <rect x="25" y="45" width="105" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="77" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Edge Router</text>
-                <text x="77" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">192.168.1.1</text>
+            <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- System Specifications -->
+                <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#ec4899" stroke-width="1.4"/>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">System Specs</text>
+                <text x="87.5" y="74" fill="#f472b6" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Role Flowcharts</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Transition Matrix</text>
 
                 <!-- Arrow 1 -->
-                <line x1="135" y1="75" x2="165" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="163,71 170,75 163,79" fill="#ffffff"/>
+                <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="189,66 195,70 189,74" fill="#ffffff"/>
 
-                <!-- Managed Switch Trunk -->
-                <rect x="175" y="40" width="125" height="70" rx="6" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="237" y="68" fill="#ffffff" font-size="13" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle">Managed Switch</text>
-                <text x="237" y="86" fill="#d1d5db" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">VLAN 10: Labs</text>
-                <text x="237" y="100" fill="#a1a1aa" font-size="11" font-family="'JetBrains Mono', monospace" text-anchor="middle">VLAN 20: Faculty</text>
+                <!-- SQL Validation Suite -->
+                <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">SQL Validation</text>
+                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">FK Integrity Suite</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Ledger Audit Queries</text>
 
                 <!-- Arrow 2 -->
-                <line x1="305" y1="75" x2="335" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="333,71 340,75 333,79" fill="#ffffff"/>
+                <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="374,66 380,70 374,74" fill="#ffffff"/>
 
-                <!-- End Devices / Subnets -->
-                <rect x="345" y="45" width="100" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="395" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Endpoints</text>
-                <text x="395" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">Subnet Ping OK</text>
+                <!-- Railway Deployment -->
+                <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#818cf8" stroke-width="1.4"/>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Railway Cloud</text>
+                <text x="452.5" y="74" fill="#c7d2fe" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Automated CD</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Live Verification</text>
             </svg>
 SVG;
 
         case 'portfolio-site':
             return <<<SVG
-            <svg class="project-diagram-svg" viewBox="0 0 460 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Browser Client -->
-                <rect x="25" y="45" width="95" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="72" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">Browser</text>
-                <text x="72" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">0 build tools</text>
+                <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#a1a1aa" stroke-width="1.2"/>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" text-anchor="middle">Browser Client</text>
+                <text x="87.5" y="74" fill="#d1d5db" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Semantic HTML5</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Zero Dependencies</text>
 
                 <!-- Arrow 1 -->
-                <line x1="125" y1="75" x2="160" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="158,71 165,75 158,79" fill="#ffffff"/>
+                <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="189,66 195,70 189,74" fill="#ffffff"/>
 
                 <!-- SSR Engine -->
-                <rect x="170" y="40" width="135" height="70" rx="6" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="237" y="68" fill="#ffffff" font-size="13" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle">Vanilla PHP Core</text>
-                <text x="237" y="86" fill="#d1d5db" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">data.php &middot; Partials</text>
-                <text x="237" y="100" fill="#a1a1aa" font-size="11" font-family="'JetBrains Mono', monospace" text-anchor="middle">WCAG 2.1 AA</text>
+                <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
+                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Vanilla PHP Core</text>
+                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">data.php &amp; Partials</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">WCAG 2.1 AA</text>
 
                 <!-- Arrow 2 -->
-                <line x1="310" y1="75" x2="345" y2="75" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <polygon points="343,71 350,75 343,79" fill="#ffffff"/>
+                <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <polygon points="374,66 380,70 374,74" fill="#ffffff"/>
 
                 <!-- SPA View Controller -->
-                <rect x="355" y="45" width="90" height="60" rx="6" fill="rgba(20,22,30,0.8)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="400" y="72" fill="#f3f4f6" font-size="13" font-family="'Outfit', sans-serif" font-weight="600" text-anchor="middle">SPA State</text>
-                <text x="400" y="90" fill="#a1a1aa" font-size="12" font-family="'JetBrains Mono', monospace" text-anchor="middle">No Page Reload</text>
+                <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#a1a1aa" stroke-width="1.2"/>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" text-anchor="middle">SPA Router</text>
+                <text x="452.5" y="74" fill="#a7f3d0" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">History &amp; Hash API</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">No Page Reload</text>
             </svg>
 SVG;
 
@@ -131,9 +141,9 @@ SVG;
 ?>
 <section class="content-section" id="projects">
     <div class="section-heading">
-        <h2 class="section-title">Projects &amp; Lab Work</h2>
+        <h2 class="section-title">Projects &amp; Systems</h2>
         <p class="section-subtitle">
-            Tools built to solve actual student problems, coursework deep-dives, and early engineering explorations. Click tabs on any project to read what broke and what was learned.
+            Core systems developed across multi-tenant financial technology, civic incident reporting, and modern web architectures. Toggle between Overview, Technical Details, and What Broke &amp; Learned on any card.
         </p>
     </div>
 
@@ -141,11 +151,11 @@ SVG;
         <?php foreach ($data['projects'] as $project): 
             $pid = $project['id'];
             $variantClass = 'student-project-card';
-            if ($pid === 'campus-portal') {
+            if ($pid === 'credencelend') {
                 $variantClass .= ' project-featured-card';
-            } elseif ($pid === 'inventory-system') {
+            } elseif ($pid === 'citywatch') {
                 $variantClass .= ' project-split-card';
-            } elseif ($pid === 'network-sim') {
+            } elseif ($pid === 'final-project') {
                 $variantClass .= ' project-terminal-card';
             } elseif ($pid === 'portfolio-site') {
                 $variantClass .= ' project-canvas-card';
@@ -204,19 +214,19 @@ SVG;
                 <div class="project-tab-content tab-overview active">
                     <p class="project-context"><?= htmlspecialchars($project['context']) ?></p>
 
-                    <?php if ($pid === 'campus-portal'): ?>
-                        <div class="project-ledger-badge" aria-label="Security &amp; Performance">
-                            <span>PHP 8.2 PDO &middot; Prepared Statements &middot; Role-based Access</span>
+                    <?php if ($pid === 'credencelend'): ?>
+                        <div class="project-ledger-badge" aria-label="Multi-Tenant Architecture">
+                            <span>PHP 8.2 PDO &middot; Multi-Tenant Isolation Middleware &middot; Role-Based Workflows</span>
                         </div>
-                    <?php elseif ($pid === 'inventory-system'): ?>
-                        <div class="project-ledger-badge" aria-label="Database Integrity">
-                            <span>MySQL &middot; ACID Transactions &middot; Foreign Key Integrity</span>
+                    <?php elseif ($pid === 'citywatch'): ?>
+                        <div class="project-ledger-badge" aria-label="Geospatial Architecture">
+                            <span>Leaflet.js Geospatial &middot; Django REST Core &middot; Municipal Incident Heatmaps</span>
                         </div>
-                    <?php elseif ($pid === 'network-sim'): ?>
-                        <div class="project-cli-header" aria-label="Cisco Packet Tracer CLI Session">
-                            <span class="cli-prompt">Router(config)#</span>
-                            <span class="cli-cmd">interface vlan 10 &amp;&amp; ip address 192.168.10.1 255.255.255.0</span>
-                            <span class="cli-result">[Status: Up/Up] Subnet gateway active</span>
+                    <?php elseif ($pid === 'final-project'): ?>
+                        <div class="project-cli-header" aria-label="SQL Validation &amp; Specification Suite">
+                            <span class="cli-prompt">mysql -u root -p</span>
+                            <span class="cli-cmd">SOURCE SQL_VALIDATION_QUERIES.sql;</span>
+                            <span class="cli-result">[Status: Pass] 100% Constraints Verified</span>
                         </div>
                     <?php elseif ($pid === 'portfolio-site'): ?>
                         <div class="project-algo-metrics" aria-label="Architecture Metrics">
@@ -257,14 +267,14 @@ SVG;
 
     <!-- SPA View Stepper Navigation -->
     <div class="spa-view-stepper">
-        <a href="#coursework" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="coursework">
+        <a href="#intro" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="intro">
             <?= render_icon('chevron-left') ?>
-            <span class="stepper-num">02</span>
-            <span>Coursework</span>
+            <span class="stepper-num">01</span>
+            <span>Introduction</span>
         </a>
-        <a href="#notes" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="notes">
-            <span>Read Lab Notes</span>
-            <span class="stepper-num">04</span>
+        <a href="#contact" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="contact">
+            <span>Get in Touch</span>
+            <span class="stepper-num">03</span>
             <?= render_icon('chevron-right') ?>
         </a>
     </div>

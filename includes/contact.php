@@ -136,10 +136,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
 
     <!-- SPA View Stepper Navigation -->
     <div class="spa-view-stepper">
-        <a href="#experience" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="experience">
+        <a href="#projects" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="projects">
             <?= render_icon('chevron-left') ?>
-            <span class="stepper-num">05</span>
-            <span>Campus &amp; Clubs</span>
+            <span class="stepper-num">02</span>
+            <span>Projects</span>
         </a>
         <a href="#intro" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="intro">
             <span>Back to Intro</span>

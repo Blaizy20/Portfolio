@@ -63,7 +63,7 @@
                 <span class="typewriter-cursor is-hidden" id="typewriterLeadCursor" aria-hidden="true"></span>
             </p>
             <p class="intro-subtext staged-subtext-hidden" id="introSubtext">
-                Currently focused on web systems development with PHP and MySQL, network administration and simulation in Cisco Packet Tracer, systems analysis, and building clean, reliable tools.
+                Currently focused on web systems development with PHP and MySQL, network administration and subnet modeling, systems analysis, and building clean, reliable tools.
             </p>
         </div>
     </div>
@@ -78,14 +78,54 @@
                     </div>
                 <?php endif; ?>
 
-                <div class="milestone-value"><?= htmlspecialchars($milestone['value']) ?></div>
+                <?php if (($milestone['id'] ?? '') === 'institution'): ?>
+                    <div class="campus-milestone-brand">
+                        <div class="campus-logo-badge" title="National University Emblem">
+                            <?= render_icon('nu-logo', 'nu-campus-logo') ?>
+                        </div>
+                        <div class="milestone-value"><?= htmlspecialchars($milestone['value']) ?></div>
+                    </div>
+                <?php else: ?>
+                    <div class="milestone-value"><?= htmlspecialchars($milestone['value']) ?></div>
+                <?php endif; ?>
                 <div class="milestone-label"><?= htmlspecialchars($milestone['label']) ?></div>
                 <div class="milestone-detail"><?= htmlspecialchars($milestone['detail']) ?></div>
 
-                <?php if (!empty($milestone['chips'])): ?>
-                    <div class="milestone-chips-row">
+                <?php if (!empty($milestone['chips'])): 
+                    $isTechFocus = (($milestone['id'] ?? '') === 'focus');
+                ?>
+                    <div class="milestone-chips-row <?= $isTechFocus ? 'milestone-chips-row--logos' : '' ?>">
                         <?php foreach ($milestone['chips'] as $chip): ?>
-                            <span class="milestone-chip"><?= htmlspecialchars($chip) ?></span>
+                            <?php
+                                $clean = strtolower(trim(preg_replace('/[^a-z0-9]+/i', '', $chip)));
+                                $mod = 'default';
+                                if (str_starts_with($clean, 'php')) $mod = 'php';
+                                elseif (str_contains($clean, 'mysql') || str_contains($clean, 'sql')) $mod = 'mysql';
+                                elseif (str_contains($clean, 'typescript') || $clean === 'ts') $mod = 'typescript';
+                                elseif (str_contains($clean, 'html')) $mod = 'html5';
+                                elseif (str_contains($clean, 'css')) $mod = 'css3';
+                                elseif (str_contains($clean, 'javascript') || $clean === 'js') $mod = 'javascript';
+                                elseif (str_contains($clean, 'python')) $mod = 'python';
+                                elseif (str_contains($clean, 'java')) $mod = 'java';
+                                elseif (str_contains($clean, 'git')) $mod = 'git';
+                                elseif (str_contains($clean, 'ojt') || str_contains($clean, 'practicum') || str_contains($clean, 'internship')) $mod = 'ojt';
+                                elseif (str_contains($clean, 'system') || str_contains($clean, 'modeling')) $mod = 'modeling';
+                            ?>
+                            <?php if ($isTechFocus): ?>
+                                <span class="milestone-chip milestone-chip--logo-only milestone-chip--<?= $mod ?>" 
+                                      data-tech="<?= $mod ?>" 
+                                      aria-label="<?= htmlspecialchars($chip) ?>" 
+                                      role="img"
+                                      tabindex="0">
+                                    <?= render_tech_icon($chip, 'milestone-chip-icon') ?>
+                                    <span class="chip-instant-tooltip" aria-hidden="true"><?= htmlspecialchars($chip) ?></span>
+                                </span>
+                            <?php else: ?>
+                                <span class="milestone-chip milestone-chip--<?= $mod ?>" data-tech="<?= $mod ?>">
+                                    <?= render_tech_icon($chip, 'milestone-chip-icon') ?>
+                                    <span class="milestone-chip-text"><?= htmlspecialchars($chip) ?></span>
+                                </span>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
@@ -93,13 +133,81 @@
         <?php endforeach; ?>
     </div>
 
+    <!-- Academic Foundations & Core Disciplines (Essential Coursework Highlights) -->
+    <div class="intro-coursework-summary">
+        <div class="intro-coursework-header">
+            <h3 class="intro-coursework-title">Academic Foundations &amp; Core Disciplines</h3>
+            <span class="intro-coursework-subtitle">Key coursework competencies from BSIT 3rd Year studies at NU Baliwag</span>
+        </div>
 
+        <div class="academic-pillars-grid">
+            <div class="academic-pillar-card">
+                <div class="pillar-card-header">
+                    <span class="pillar-tag">Web Systems</span>
+                    <span class="pillar-course-code">IT 301</span>
+                </div>
+                <h4 class="pillar-title">Client-Server &amp; Dynamic Web</h4>
+                <p class="pillar-desc">Dynamic full-stack development with server-side PHP 8 and relational MySQL, covering session lifecycle security, CRUD operations, and clean REST APIs.</p>
+                <div class="pillar-skills">
+                    <span class="pillar-skill-tag">PHP 8</span>
+                    <span class="pillar-skill-tag">MySQL</span>
+                    <span class="pillar-skill-tag">REST APIs</span>
+                    <span class="pillar-skill-tag">Client-Server</span>
+                </div>
+            </div>
+
+            <div class="academic-pillar-card">
+                <div class="pillar-card-header">
+                    <span class="pillar-tag">Databases</span>
+                    <span class="pillar-course-code">IT 302</span>
+                </div>
+                <h4 class="pillar-title">Relational DBMS &amp; Normalization</h4>
+                <p class="pillar-desc">Relational database modeling, ERD design, schema normalization (1NF–3NF), ACID transaction safety, and strict foreign key integrity constraints.</p>
+                <div class="pillar-skills">
+                    <span class="pillar-skill-tag">SQL</span>
+                    <span class="pillar-skill-tag">3NF Normalization</span>
+                    <span class="pillar-skill-tag">ERD Modeling</span>
+                    <span class="pillar-skill-tag">ACID Integrity</span>
+                </div>
+            </div>
+
+            <div class="academic-pillar-card">
+                <div class="pillar-card-header">
+                    <span class="pillar-tag">Analysis</span>
+                    <span class="pillar-course-code">IT 304</span>
+                </div>
+                <h4 class="pillar-title">Systems Analysis &amp; Architecture</h4>
+                <p class="pillar-desc">Software development lifecycles (SDLC), user requirements modeling, UML flowcharts, Data Flow Diagrams (DFD), and role state machine verification.</p>
+                <div class="pillar-skills">
+                    <span class="pillar-skill-tag">UML Diagrams</span>
+                    <span class="pillar-skill-tag">Data Flow (DFD)</span>
+                    <span class="pillar-skill-tag">Role Flowcharts</span>
+                    <span class="pillar-skill-tag">SDLC Specs</span>
+                </div>
+            </div>
+
+            <div class="academic-pillar-card">
+                <div class="pillar-card-header">
+                    <span class="pillar-tag">Networking</span>
+                    <span class="pillar-course-code">IT 303</span>
+                </div>
+                <h4 class="pillar-title">Networking &amp; Infrastructure</h4>
+                <p class="pillar-desc">OSI reference model, IPv4 variable-length subnetting, switch and router VLAN configuration, packet tracing, and access control principles.</p>
+                <div class="pillar-skills">
+                    <span class="pillar-skill-tag">TCP/IP</span>
+                    <span class="pillar-skill-tag">IPv4 Subnetting</span>
+                    <span class="pillar-skill-tag">VLAN Config</span>
+                    <span class="pillar-skill-tag">LAN / WAN</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SPA View Stepper Navigation -->
     <div class="spa-view-stepper" id="introStepper">
         <span class="stepper-placeholder" aria-hidden="true"></span>
-        <a href="#coursework" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="coursework">
-            <span>Explore Coursework</span>
+        <a href="#projects" class="btn btn-secondary btn-sm spa-stepper-btn" data-section="projects">
+            <span>Explore Projects</span>
             <span class="stepper-num">02</span>
             <?= render_icon('chevron-right') ?>
         </a>

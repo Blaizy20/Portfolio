@@ -18,9 +18,16 @@
                 <div class="exp-dot" aria-hidden="true"></div>
                 <div class="exp-card">
                     <div class="exp-header">
-                        <div>
-                            <h3 class="exp-role"><?= htmlspecialchars($exp['role']) ?></h3>
-                            <div class="exp-org"><?= htmlspecialchars($exp['organization']) ?> · <span class="exp-type"><?= htmlspecialchars($exp['type']) ?></span></div>
+                        <div class="exp-header-info">
+                            <?php if (str_contains(strtolower($exp['organization'] ?? ''), 'national university') || str_contains(strtolower($exp['organization'] ?? ''), 'nu')): ?>
+                                <div class="exp-campus-logo-wrap" title="National University Emblem">
+                                    <?= render_icon('nu-logo', 'exp-campus-logo') ?>
+                                </div>
+                            <?php endif; ?>
+                            <div>
+                                <h3 class="exp-role"><?= htmlspecialchars($exp['role']) ?></h3>
+                                <div class="exp-org"><?= htmlspecialchars($exp['organization']) ?> · <span class="exp-type"><?= htmlspecialchars($exp['type']) ?></span></div>
+                            </div>
                         </div>
                         <span class="exp-period"><?= htmlspecialchars($exp['period']) ?></span>
                     </div>
@@ -61,7 +68,7 @@
                 <span class="growth-goal-num">02</span>
                 <div>
                     <h4 class="growth-goal-title">Enterprise Networking &amp; Security</h4>
-                    <p class="growth-goal-desc">Gaining practical proficiency in Cisco Packet Tracer, VLAN segmentation, subnet routing, and system hardening.</p>
+                    <p class="growth-goal-desc">Gaining practical proficiency in network architecture, VLAN segmentation, subnet routing, and system hardening.</p>
                 </div>
             </div>
             <div class="growth-goal-item">

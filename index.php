@@ -18,9 +18,7 @@ require __DIR__ . '/includes/sidebar.php';
 <main class="main-content staged-hidden" id="mainContent">
 <?php
 require __DIR__ . '/includes/intro.php';
-require __DIR__ . '/includes/coursework.php';
+// Coursework, Lab Notes, and Campus/Clubs sections disabled as requested; core coursework integrated into Introduction
 require __DIR__ . '/includes/projects.php';
-require __DIR__ . '/includes/lab_notes.php';
-require __DIR__ . '/includes/experience.php';
 require __DIR__ . '/includes/contact.php';
 require __DIR__ . '/includes/footer.php';

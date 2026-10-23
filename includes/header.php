@@ -23,7 +23,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
     
@@ -53,6 +55,10 @@
 <header class="site-header staged-hidden" id="siteHeader">
     <div class="header-inner">
         <div class="header-left">
+            <button type="button" class="header-icon-btn sidebar-desktop-toggle-btn" id="headerSidebarToggleBtn" aria-label="Toggle navigation bar" title="Toggle navigation bar (Ctrl+B)">
+                <span class="icon-collapse"><?= render_icon('sidebar-collapse') ?></span>
+                <span class="icon-expand"><?= render_icon('sidebar-expand') ?></span>
+            </button>
             <a href="#intro" class="header-brand" aria-label="<?= htmlspecialchars($data['site']['author']) ?> - Home">
                 <span class="header-brand-badge"><?= strtoupper(substr($data['site']['author'], 0, 1)) ?></span>
                 <span class="header-brand-name"><?= htmlspecialchars($data['site']['author']) ?></span>

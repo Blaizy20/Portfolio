@@ -817,14 +817,17 @@ function initTheme() {
 /**
  * 2. Auto-Collapsible Left Sidebar (Desktop Hover Detection)
  * - Hover on sidebar EXCLUDING the buttons: automatically collapses
- * - Hover on buttons: will NOT auto-collapse (expands & stays uncollapsed)
- * - Collapse/uncollapse buttons removed
+/**
+ * 2. Collapsible Left Sidebar (01 - 03 Only)
+ * Features:
+ * - Explicit toggle via in-sidebar collapse button (#sidebarCollapseBtn)
+ * - Explicit toggle via top header button (#headerSidebarToggleBtn)
+ * - Keyboard shortcut (Ctrl+B / Cmd+B)
+ * - State persistence in localStorage
  */
 function initSidebarCollapse() {
     const sidebar = document.getElementById('siteSidebar');
     if (!sidebar) return;
-
-    let collapseTimer = null;
 
     function isDesktop() {
         return window.innerWidth >= 1024;
@@ -854,10 +857,12 @@ function initSidebarCollapse() {
         }
     }
 
-    // Helper: determine if target or any ancestor is a nav button or action link
-    function isNavButton(el) {
-        if (!el || el === sidebar) return false;
-        return !!el.closest('.sidebar-nav-link, button, a');
+    function toggle() {
+        if (document.body.classList.contains('sidebar-collapsed')) {
+            expand();
+        } else {
+            collapse();
+        }
     }
 
     // Restore saved state if saved as collapsed on initial load
@@ -866,71 +871,31 @@ function initSidebarCollapse() {
         document.body.classList.add('sidebar-collapsed');
     }
 
-    // Pointer events over the sidebar
-    sidebar.addEventListener('pointerover', (e) => {
-        if (!isDesktop()) return;
+    // Sidebar collapse button click handler
+    const sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
+    if (sidebarCollapseBtn) {
+        sidebarCollapseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggle();
+        });
+    }
 
-        if (isNavButton(e.target)) {
-            // Hovering ON buttons: WILL NOT collapse; expands and stays expanded
-            if (collapseTimer) {
-                clearTimeout(collapseTimer);
-                collapseTimer = null;
-            }
-            expand();
-        } else {
-            // Hovering on sidebar EXCLUDING buttons: automatically collapse
-            // Calm 320ms grace window provides a smooth, forgiving delay when gliding between buttons
-            if (collapseTimer) clearTimeout(collapseTimer);
-            collapseTimer = setTimeout(() => {
-                collapse();
-                collapseTimer = null;
-            }, 320);
-        }
-    });
-
-    sidebar.addEventListener('pointermove', (e) => {
-        if (!isDesktop()) return;
-
-        if (isNavButton(e.target)) {
-            if (collapseTimer) {
-                clearTimeout(collapseTimer);
-                collapseTimer = null;
-            }
-            if (document.body.classList.contains('sidebar-collapsed')) {
-                expand();
-            }
-        } else if (!collapseTimer && !document.body.classList.contains('sidebar-collapsed')) {
-            collapseTimer = setTimeout(() => {
-                collapse();
-                collapseTimer = null;
-            }, 320);
-        }
-    });
-
-    sidebar.addEventListener('pointerleave', () => {
-        if (collapseTimer) {
-            clearTimeout(collapseTimer);
-            collapseTimer = null;
-        }
-    });
-
-    // Keyboard focus access: focusing any nav button expands the sidebar
-    sidebar.addEventListener('focusin', (e) => {
-        if (isNavButton(e.target)) {
-            if (collapseTimer) clearTimeout(collapseTimer);
-            expand();
-        }
-    });
+    // Header sidebar toggle button click handler
+    const headerSidebarToggleBtn = document.getElementById('headerSidebarToggleBtn');
+    if (headerSidebarToggleBtn) {
+        headerSidebarToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggle();
+        });
+    }
 
     // Keyboard shortcut: Ctrl+B or Cmd+B for power users
     document.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
             e.preventDefault();
-            if (document.body.classList.contains('sidebar-collapsed')) {
-                expand();
-            } else {
-                collapse();
-            }
+            toggle();
         }
     });
 }
@@ -1097,17 +1062,19 @@ function updateMobileGlassIndicator(animate = true) {
 window.updateMobileGlassIndicator = updateMobileGlassIndicator;
 
 /**
- * 4. SPA Section View Router (01 - 06)
+ * 4. SPA Section View Router (01 - 03)
  * Displays only one focused section at a time without continuous scrolling.
  */
 function initSpaRouter() {
-    const VALID_SECTIONS = ['intro', 'coursework', 'projects', 'notes', 'experience', 'contact'];
+    const VALID_SECTIONS = ['intro', 'projects', 'contact'];
     const sections = document.querySelectorAll('.content-section[id]');
     const navLinks = document.querySelectorAll('.sidebar-nav-link[data-section]');
 
     if (!sections.length) return;
 
     function activateSection(targetId, updateHistory = true) {
+        if (targetId === 'coursework' || targetId === 'experience') targetId = 'intro';
+        if (targetId === 'notes') targetId = 'projects';
         if (!VALID_SECTIONS.includes(targetId)) {
             targetId = 'intro';
         }
@@ -1301,18 +1268,18 @@ function initStudentTerminal() {
         'whoami': "John Senen Estrella\n3rd year college student taking the program of BSIT at NU Baliwag.\nPassionate about web systems, relational databases, network infrastructure, and clean architecture.",
         'cat status.txt': "Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nFocus: Web Development, Database Management, and Networking\nUpcoming: Industry Practicum / OJT Placement",
         'status': "Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nFocus: Web Development, Database Management, and Networking\nUpcoming: Industry Practicum / OJT Placement",
-        'courses --current': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Cisco Packet Tracer)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
-        'courses': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Cisco Packet Tracer)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
+        'courses --current': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Network Architecture)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
+        'courses': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Network Architecture)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
         'cat favorite_bug.log': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'favorite_bug': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'bugs': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'finger john': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenen.estrella@example.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
         'finger': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenen.estrella@example.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
-        'cat goals.txt': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network simulations with Cisco Packet Tracer\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
-        'goals': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network simulations with Cisco Packet Tracer\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
+        'cat goals.txt': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
+        'goals': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
         'contact': "Name: John Senen Estrella\nProgram: BSIT (3rd Year)\nInstitution: NU Baliwag\nEmail: johnsenen.estrella@example.com\nLocation: Baliwag, Bulacan, Philippines",
-        'stack': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Cisco Packet Tracer, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
-        'skills': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Cisco Packet Tracer, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
+        'stack': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
+        'skills': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
         'help': "Available commands:\n  whoami            - Display student bio\n  cat status.txt    - View current BSIT academic status\n  cat goals.txt     - Read growth & practicum goals\n  courses           - List BSIT enrolled coursework\n  cat favorite_bug.log - Read database debugging story\n  finger john       - View student contact & school\n  stack             - View technical toolkit\n  clear             - Reset terminal output"
     };
 

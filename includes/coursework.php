@@ -109,7 +109,10 @@ foreach ($data['courses'] as $course) {
 
                 <div class="course-tags">
                     <?php foreach ($course['languages'] as $lang): ?>
-                        <span class="course-tag"><?= htmlspecialchars($lang) ?></span>
+                        <span class="course-tag">
+                            <?= render_tech_icon($lang, 'course-tag-icon') ?>
+                            <span><?= htmlspecialchars($lang) ?></span>
+                        </span>
                     <?php endforeach; ?>
                 </div>
             </article>
@@ -130,8 +133,10 @@ foreach ($data['courses'] as $course) {
                     <ul class="toolkit-list">
                         <?php foreach ($tools as $tool): ?>
                             <li class="toolkit-item">
-                                <span class="toolkit-bullet">›</span>
-                                <span><?= htmlspecialchars($tool) ?></span>
+                                <span class="toolkit-icon-badge" aria-hidden="true">
+                                    <?= render_tech_icon($tool, 'toolkit-item-icon') ?>
+                                </span>
+                                <span class="toolkit-name"><?= htmlspecialchars($tool) ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>

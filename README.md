@@ -11,7 +11,7 @@ A clean, high-performance, modular PHP static portfolio template built with vani
 - **Aesthetic Excellence**:
   - Deep dark mode default with instant light mode switch (saved to `localStorage`).
   - Tactile Obsidian Carbon & Crisp White contrast in dark mode with clean, elevation-based depth.
-  - Google Fonts typography (`Outfit` for geometric headings and `DM Sans` for crisp body copy).
+  - Distinctive brand typography: `Cabinet Grotesk` (Display H1, Foundry: Indian Type Foundry - ITF), `Plus Jakarta Sans` (Headings, Foundry: Tokotype), native system-font stack for body, and `JetBrains Mono` (Code & Terminal, Foundry: JetBrains).
 - **Interactive Capabilities**:
   - Category-based project filtering (All, Web App, E-Commerce, AI, Open Source).
   - Smooth anchor scrolling and active navigation indicators.
@@ -95,7 +95,7 @@ Open `data.php` and update the values:
 - **`socials`**: URLs to your GitHub, LinkedIn, Twitter/X, Dribbble, etc.
 - **`stats`**: Years of experience, completed projects, uptime, user count.
 - **`skill_categories`**: Grouped technical proficiencies and percentages.
-- **`projects`**: Add or remove project items with tags, gradients, badges, and GitHub/Live links.
+- **`projects`**: Add or remove project items with tags, badges, and GitHub/Live links.
 - **`experience`**: Career milestones, roles, and achievements.
 - **`testimonials`**: Client or colleague endorsements.
 
