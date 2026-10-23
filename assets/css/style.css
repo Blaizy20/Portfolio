@@ -9,8 +9,8 @@
  * - Obsidian Carbon (#0c0d11) & Crisp White (#ffffff) contrast in dark mode (20.2:1 ratio)
  * - High-contrast monochromatic paper palette in light mode
  * - Brand typography: 'Cabinet Grotesk' (Display H1, Foundry: Indian Type Foundry - ITF),
- *   'Plus Jakarta Sans' (Headings, Foundry: Tokotype), Native System Font Stack (Body),
- *   'JetBrains Mono' (Code & Terminal, Foundry: JetBrains)
+ *   Native System-Font Stack for Headings & Body (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif),
+ *   Native System Monospace for Code & Diagrams (ui-monospace, SFMono-Regular, Menlo, Consolas, monospace)
  * - Tactile micro-interactions: spring curves, button scale physics, line fade-ins, card hover elevations
  * - Zero generic AI slop: no decorative gradients, no pulsing green dots, no fake years, no progress rings, no nested cards
  */
@@ -57,13 +57,13 @@
     --radius-full: 9999px;
 
     /* Distinctive Display Face for H1 (Foundry: Indian Type Foundry - ITF) */
-    --font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    /* Foundry Sans for Headings (Foundry: Tokotype / Gumpita Rahayu) */
-    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    /* Clean System-Font Stack for Headings: Instant zero-latency rendering */
+    --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* Native System-Font Stack for Body: Instant rendering, zero latency, maximum clarity */
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    /* Monospace for Code & Terminal (Foundry: JetBrains / Philipp Nurullin) */
-    --font-mono: 'JetBrains Mono', "SF Mono", Consolas, Menlo, monospace;
+    /* Native System Monospace for Code & Terminal */
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     --header-height: 64px;
     --sidebar-width: 230px;

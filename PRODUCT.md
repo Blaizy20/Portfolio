@@ -34,7 +34,7 @@ Evaluated across desktop and mobile screens by university recruiters and hiring 
 ## Brand Commitments
 
 - **Tone of Voice**: Pragmatic, curious, engineering-focused, and articulate.
-- **Typography**: Distinctive foundry typefaces: *Cabinet Grotesk* (Indian Type Foundry - ITF) for display H1 titles, *Plus Jakarta Sans* (Tokotype) for structural headings, native system-font stack for body, and *JetBrains Mono* (JetBrains) for code & terminal.
+- **Typography**: Distinctive foundry display typeface *Cabinet Grotesk* (Indian Type Foundry - ITF) for display H1 titles, native system-font stack for structural headings and body (`-apple-system, BlinkMacSystemFont, "Segoe UI"`), and native system monospace stack for code & terminal.
 - **Visual Palette**: Obsidian Carbon foundation with crisp high-contrast White accents in dark mode, and clean monochrome contrasts in light mode.
 
 ## Evidence on Hand

@@ -14,10 +14,10 @@ function render_student_project_diagram(string $id): string {
             <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Staff Portal & Mobile -->
                 <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#3b82f6" stroke-width="1.4"/>
-                <text x="87.5" y="50" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Staff Web Portal</text>
-                <text x="87.5" y="68" fill="#93c5fd" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Admin &amp; Cashier</text>
+                <text x="87.5" y="50" fill="#f3f4f6" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Staff Web Portal</text>
+                <text x="87.5" y="68" fill="#93c5fd" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Admin &amp; Cashier</text>
                 <line x1="30" y1="78" x2="145" y2="78" stroke="rgba(255,255,255,0.1)"/>
-                <text x="87.5" y="96" fill="#a1a1aa" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Mobile Member App</text>
+                <text x="87.5" y="96" fill="#a1a1aa" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Mobile Member App</text>
 
                 <!-- Arrow 1 (Cleanly positioned in 35px gap) -->
                 <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -25,9 +25,9 @@ function render_student_project_diagram(string $id): string {
 
                 <!-- REST API & Tenant Middleware -->
                 <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#8b5cf6" stroke-width="1.5"/>
-                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">RESTful API Core</text>
-                <text x="270" y="74" fill="#c4b5fd" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Tenant Middleware</text>
-                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Role-Based Guard</text>
+                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">RESTful API Core</text>
+                <text x="270" y="74" fill="#c4b5fd" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Tenant Middleware</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Role-Based Guard</text>
 
                 <!-- Arrow 2 (Cleanly positioned in 35px gap) -->
                 <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -35,9 +35,9 @@ function render_student_project_diagram(string $id): string {
 
                 <!-- Multi-Tenant MySQL -->
                 <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#0ea5e9" stroke-width="1.4"/>
-                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Multi-Tenant DB</text>
-                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">MySQL Schema</text>
-                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">FK Audit Ledgers</text>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Multi-Tenant DB</text>
+                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">MySQL Schema</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">FK Audit Ledgers</text>
             </svg>
 SVG;
 
@@ -46,9 +46,9 @@ SVG;
             <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Resident UI -->
                 <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#f59e0b" stroke-width="1.4"/>
-                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Resident UI / UX</text>
-                <text x="87.5" y="74" fill="#fcd34d" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Incident Reporting</text>
-                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">GPS Geolocation</text>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Resident UI / UX</text>
+                <text x="87.5" y="74" fill="#fcd34d" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Incident Reporting</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">GPS Geolocation</text>
 
                 <!-- Arrow 1 -->
                 <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -56,9 +56,9 @@ SVG;
 
                 <!-- Leaflet Mapping & Django Engine -->
                 <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#10b981" stroke-width="1.5"/>
-                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Leaflet.js Engine</text>
-                <text x="270" y="74" fill="#6ee7b7" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Map Coordinate Pin</text>
-                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Django API Core</text>
+                <text x="270" y="52" fill="#ffffff" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Leaflet.js Engine</text>
+                <text x="270" y="74" fill="#6ee7b7" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Map Coordinate Pin</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Django API Core</text>
 
                 <!-- Arrow 2 -->
                 <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -66,9 +66,9 @@ SVG;
 
                 <!-- Municipal Analytics -->
                 <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#38bdf8" stroke-width="1.4"/>
-                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Municipal Dash</text>
-                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Live Heatmaps</text>
-                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Resolution Stats</text>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Municipal Dash</text>
+                <text x="452.5" y="74" fill="#7dd3fc" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Live Heatmaps</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Resolution Stats</text>
             </svg>
 SVG;
 
@@ -77,9 +77,9 @@ SVG;
             <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- System Specifications -->
                 <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#ec4899" stroke-width="1.4"/>
-                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">System Specs</text>
-                <text x="87.5" y="74" fill="#f472b6" font-size="10.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Role Flowcharts</text>
-                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Transition Matrix</text>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12.5" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">System Specs</text>
+                <text x="87.5" y="74" fill="#f472b6" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Role Flowcharts</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Transition Matrix</text>
 
                 <!-- Arrow 1 -->
                 <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -87,9 +87,9 @@ SVG;
 
                 <!-- SQL Validation Suite -->
                 <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">SQL Validation</text>
-                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">FK Integrity Suite</text>
-                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Ledger Audit Queries</text>
+                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">SQL Validation</text>
+                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">FK Integrity Suite</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Ledger Audit Queries</text>
 
                 <!-- Arrow 2 -->
                 <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -97,9 +97,9 @@ SVG;
 
                 <!-- Railway Deployment -->
                 <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#818cf8" stroke-width="1.4"/>
-                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Railway Cloud</text>
-                <text x="452.5" y="74" fill="#c7d2fe" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Automated CD</text>
-                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Live Verification</text>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Railway Cloud</text>
+                <text x="452.5" y="74" fill="#c7d2fe" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Automated CD</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Live Verification</text>
             </svg>
 SVG;
 
@@ -108,9 +108,9 @@ SVG;
             <svg class="project-diagram-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <!-- Browser Client -->
                 <rect x="15" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="87.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" text-anchor="middle">Browser Client</text>
-                <text x="87.5" y="74" fill="#d1d5db" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Semantic HTML5</text>
-                <text x="87.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">Zero Dependencies</text>
+                <text x="87.5" y="52" fill="#f3f4f6" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" text-anchor="middle">Browser Client</text>
+                <text x="87.5" y="74" fill="#d1d5db" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Semantic HTML5</text>
+                <text x="87.5" y="94" fill="#9ca3af" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">Zero Dependencies</text>
 
                 <!-- Arrow 1 -->
                 <line x1="163" y1="70" x2="191" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -118,9 +118,9 @@ SVG;
 
                 <!-- SSR Engine -->
                 <rect x="195" y="25" width="150" height="90" rx="8" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-width="1.5"/>
-                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" text-anchor="middle">Vanilla PHP Core</text>
-                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">data.php &amp; Partials</text>
-                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">WCAG 2.1 AA</text>
+                <text x="270" y="52" fill="#ffffff" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" text-anchor="middle">Vanilla PHP Core</text>
+                <text x="270" y="74" fill="#e0e7ff" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">data.php &amp; Partials</text>
+                <text x="270" y="94" fill="#9ca3af" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">WCAG 2.1 AA</text>
 
                 <!-- Arrow 2 -->
                 <line x1="348" y1="70" x2="376" y2="70" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3 3"/>
@@ -128,9 +128,9 @@ SVG;
 
                 <!-- SPA View Controller -->
                 <rect x="380" y="25" width="145" height="90" rx="8" fill="rgba(20,22,30,0.85)" stroke="#a1a1aa" stroke-width="1.2"/>
-                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" text-anchor="middle">SPA Router</text>
-                <text x="452.5" y="74" fill="#a7f3d0" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">History &amp; Hash API</text>
-                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="'JetBrains Mono', monospace" text-anchor="middle">No Page Reload</text>
+                <text x="452.5" y="52" fill="#f3f4f6" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600" text-anchor="middle">SPA Router</text>
+                <text x="452.5" y="74" fill="#a7f3d0" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">History &amp; Hash API</text>
+                <text x="452.5" y="94" fill="#9ca3af" font-size="9.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="middle">No Page Reload</text>
             </svg>
 SVG;
 

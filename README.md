@@ -11,7 +11,7 @@ A clean, high-performance, modular PHP static portfolio template built with vani
 - **Aesthetic Excellence**:
   - Deep dark mode default with instant light mode switch (saved to `localStorage`).
   - Tactile Obsidian Carbon & Crisp White contrast in dark mode with clean, elevation-based depth.
-  - Distinctive brand typography: `Cabinet Grotesk` (Display H1, Foundry: Indian Type Foundry - ITF), `Plus Jakarta Sans` (Headings, Foundry: Tokotype), native system-font stack for body, and `JetBrains Mono` (Code & Terminal, Foundry: JetBrains).
+  - Distinctive brand typography: `Cabinet Grotesk` (Display H1, Foundry: Indian Type Foundry - ITF), native system-font stack for headings and body (`-apple-system, BlinkMacSystemFont, "Segoe UI"`), and native system monospace stack for code and architecture diagrams.
 - **Interactive Capabilities**:
   - Category-based project filtering (All, Web App, E-Commerce, AI, Open Source).
   - Smooth anchor scrolling and active navigation indicators.
