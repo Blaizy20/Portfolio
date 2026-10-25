@@ -3020,7 +3020,7 @@ article[id],
     border-radius: 0;
     padding: 0.35rem 0 0.35rem 0.85rem;
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     margin: 1rem 0;
     flex-wrap: wrap;
 }
@@ -3030,21 +3030,30 @@ article[id],
     font-weight: 700;
 }
 
+[data-theme="light"] .project-cli-header .cli-prompt {
+    color: #15803d;
+}
+
 .project-cli-header .cli-cmd {
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
     word-break: break-word;
     overflow-wrap: anywhere;
 }
 
 [data-theme="light"] .project-cli-header .cli-cmd {
-    color: #111318;
+    color: #0f172a;
 }
 
 .project-cli-header .cli-result {
     margin-left: auto;
     color: var(--text-secondary);
-    font-size: 0.78rem;
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+[data-theme="light"] .project-cli-header .cli-result {
+    color: #0369a1;
 }
 
 /* Project Archetype 3: Algorithm Canvas Card (GraphPath Visualizer) */
@@ -3065,8 +3074,9 @@ article[id],
 
 .metric-pill {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    padding: 0.25rem 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
     background: var(--bg-surface-elevated);
     border: 1px solid var(--border-highlight);
     border-radius: var(--radius-full);
@@ -3080,7 +3090,9 @@ article[id],
 
 .project-ledger-badge {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.55;
     color: var(--text-primary);
     background: transparent;
     border: none;
@@ -3107,9 +3119,9 @@ article[id],
 
 .project-badge {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     font-weight: 700;
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.65rem;
     background: var(--bg-surface-elevated);
     border: 1px solid var(--border-highlight);
     border-radius: var(--radius-sm);
@@ -3117,8 +3129,9 @@ article[id],
 }
 
 .project-category-text {
-    font-size: 0.82rem;
-    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
 .project-title {
@@ -3130,7 +3143,8 @@ article[id],
 }
 
 .project-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--text-secondary);
 }
 
@@ -3144,11 +3158,11 @@ article[id],
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.9rem;
     background: var(--bg-surface-elevated);
     border: 1px solid var(--border-highlight);
     border-radius: var(--radius-sm);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--text-primary);
     transition: transform var(--transition-fast), background-color 160ms ease, border-color 160ms ease, color 160ms ease;
@@ -3177,8 +3191,8 @@ article[id],
 }
 
 .project-tab-btn {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.85rem;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.88rem;
     font-weight: 600;
     border-radius: var(--radius-sm);
     color: var(--text-muted);
@@ -3222,11 +3236,11 @@ article[id],
 }
 
 .project-context {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.65;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    max-width: 52ch;
+    max-width: 56ch;
 }
 
 /* Seamless Diagram Container without nested card background */
@@ -3247,34 +3261,70 @@ article[id],
 
 [data-theme="light"] .project-diagram-svg rect[fill="rgba(20,22,30,0.85)"] {
     fill: #ffffff;
-    stroke: #cbd5e1;
+    stroke: #94a3b8;
 }
 
 [data-theme="light"] .project-diagram-svg rect[fill="rgba(255,255,255,0.06)"] {
     fill: #f8fafc;
-    stroke: #94a3b8;
+    stroke: #64748b;
 }
 
+/* Headings in diagram nodes */
 [data-theme="light"] .project-diagram-svg text[fill="#f3f4f6"],
 [data-theme="light"] .project-diagram-svg text[fill="#ffffff"] {
     fill: #0f172a;
 }
 
+/* Sub-labels in diagram nodes - High contrast color mapping */
+[data-theme="light"] .project-diagram-svg text[fill="#93c5fd"] {
+    fill: #1d4ed8;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#c4b5fd"] {
+    fill: #6d28d9;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#7dd3fc"] {
+    fill: #0284c7;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#fcd34d"] {
+    fill: #b45309;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#6ee7b7"],
+[data-theme="light"] .project-diagram-svg text[fill="#a7f3d0"] {
+    fill: #047857;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#f472b6"] {
+    fill: #be185d;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#e0e7ff"],
+[data-theme="light"] .project-diagram-svg text[fill="#c7d2fe"] {
+    fill: #4338ca;
+}
+
+[data-theme="light"] .project-diagram-svg text[fill="#d1d5db"] {
+    fill: #334155;
+}
+
 [data-theme="light"] .project-diagram-svg text[fill="#9ca3af"],
 [data-theme="light"] .project-diagram-svg text[fill="#a1a1aa"] {
-    fill: #64748b;
+    fill: #475569;
 }
 
 [data-theme="light"] .project-diagram-svg line[stroke="rgba(255,255,255,0.7)"] {
-    stroke: #64748b;
+    stroke: #475569;
 }
 
 [data-theme="light"] .project-diagram-svg polygon[fill="#ffffff"] {
-    fill: #64748b;
+    fill: #475569;
 }
 
 [data-theme="light"] .project-diagram-svg line[stroke="rgba(255,255,255,0.1)"] {
-    stroke: rgba(0, 0, 0, 0.08);
+    stroke: rgba(0, 0, 0, 0.12);
 }
 
 .project-tags {
@@ -3285,12 +3335,20 @@ article[id],
 
 .tech-tag {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    padding: 0.25rem 0.6rem;
-    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     color: var(--text-secondary);
+}
+
+[data-theme="light"] .tech-tag {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #1e293b;
+    font-weight: 600;
 }
 
 /* Tab 2: Retrospective (Flattened, no nested card background) */
@@ -3308,7 +3366,7 @@ article[id],
 
 .retro-heading {
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -3317,10 +3375,10 @@ article[id],
 }
 
 .retro-body {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.65;
     color: var(--text-primary);
-    max-width: 52ch;
+    max-width: 56ch;
 }
 
 /* ==========================================================================
@@ -5548,6 +5606,37 @@ article[id],
 /* SPA Navigation Stepper Rise */
 .main-content.staged-enter .spa-view-stepper {
     animation: contentBlockRise 650ms cubic-bezier(0.16, 1, 0.3, 1) 780ms both;
+}
+
+/* Projects Section Staged Entrance */
+.main-content.staged-enter #projects.spa-active .section-heading {
+    animation: contentBlockRise 700ms cubic-bezier(0.16, 1, 0.3, 1) 150ms both;
+}
+.main-content.staged-enter #projects.spa-active .projects-list .student-project-card:nth-child(1) {
+    animation: contentCardCascade 700ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+}
+.main-content.staged-enter #projects.spa-active .projects-list .student-project-card:nth-child(2) {
+    animation: contentCardCascade 700ms cubic-bezier(0.16, 1, 0.3, 1) 360ms both;
+}
+.main-content.staged-enter #projects.spa-active .projects-list .student-project-card:nth-child(3) {
+    animation: contentCardCascade 700ms cubic-bezier(0.16, 1, 0.3, 1) 470ms both;
+}
+.main-content.staged-enter #projects.spa-active .projects-list .student-project-card:nth-child(4) {
+    animation: contentCardCascade 700ms cubic-bezier(0.16, 1, 0.3, 1) 580ms both;
+}
+.main-content.staged-enter #projects.spa-active .projects-list .student-project-card:nth-child(n+5) {
+    animation: contentCardCascade 700ms cubic-bezier(0.16, 1, 0.3, 1) 650ms both;
+}
+
+/* Contact Section Staged Entrance */
+.main-content.staged-enter #contact.spa-active .section-heading {
+    animation: contentBlockRise 700ms cubic-bezier(0.16, 1, 0.3, 1) 150ms both;
+}
+.main-content.staged-enter #contact.spa-active .contact-layout .contact-details-box {
+    animation: contentBlockRise 700ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+}
+.main-content.staged-enter #contact.spa-active .contact-layout .contact-form-box {
+    animation: contentBlockRise 700ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
 }
 
 @keyframes contentBlockRise {

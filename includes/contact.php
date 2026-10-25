@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
         <div class="contact-details-box">
             <h3 class="contact-box-title">Direct Reach-out</h3>
             <p class="contact-box-desc">
-                Feel free to email directly or message me on LinkedIn. I reply promptly to mentors, recruiters, and fellow students.
+                Always open to discussing software projects, IT practicum placement, and academic mentorship.
             </p>
 
             <div class="contact-methods">
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                                name="name" 
                                class="form-control" 
                                required 
-                               placeholder="e.g., Sarah Chen"
+                               placeholder="Juan Dela Cruz"
                                value="<?= htmlspecialchars($_POST['name'] ?? '') ?>">
                     </div>
 
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                                name="email" 
                                class="form-control" 
                                required 
-                               placeholder="e.g., sarah.chen@company.com"
+                               placeholder="juandelacruz@example.com"
                                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
                     </div>
                 </div>
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                            id="contactSubject" 
                            name="subject" 
                            class="form-control" 
-                           placeholder="e.g., Practicum / OJT Inquiry / Project Question"
+                           placeholder="Practicum / OJT Inquiry or Project Discussion"
                            value="<?= htmlspecialchars($_POST['subject'] ?? '') ?>">
                 </div>
 
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                               class="form-control form-textarea" 
                               rows="5" 
                               required 
-                              placeholder="e.g., Hi John, I came across your CredenceLend project and would like to discuss an upcoming IT Practicum / Software Engineering internship opening on our engineering team..."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
+                              placeholder="Hi John, I saw your work on CredenceLend and would like to connect about an internship opportunity."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
                 </div>
 
                 <button type="submit" name="student_contact_submit" value="1" class="btn btn-primary submit-btn">

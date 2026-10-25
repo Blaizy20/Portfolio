@@ -225,6 +225,14 @@ function initWelcomeScreen() {
                     content.classList.remove('staged-hidden');
                     void content.offsetHeight; // Force reflow
                     content.classList.add('staged-enter');
+
+                    // If user refreshed on #projects or #contact, re-trigger section cascade
+                    const activeSection = document.querySelector('.content-section.spa-active');
+                    if (activeSection && activeSection.id !== 'intro') {
+                        activeSection.classList.remove('spa-active');
+                        void activeSection.offsetHeight; // Force reflow to replay entrance animations
+                        activeSection.classList.add('spa-active');
+                    }
                 }
 
                 activeStageTimeout = setTimeout(() => {
@@ -243,8 +251,11 @@ function initWelcomeScreen() {
     function startSequentialTextTyping(onComplete) {
         if (isFullyCompleted) return;
 
+        const introSection = document.getElementById('intro');
+        const isIntroActive = introSection && introSection.classList.contains('spa-active');
+
         const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (isReduced) {
+        if (isReduced || !isIntroActive) {
             if (typewriterText) typewriterText.textContent = fullHeadline;
             if (typewriterCursor) typewriterCursor.classList.add('is-hidden');
             if (typewriterLead) typewriterLead.textContent = fullLeadText;
@@ -398,6 +409,12 @@ function initWelcomeScreen() {
         if (content) {
             content.classList.remove('staged-hidden');
             content.classList.add('staged-enter');
+        }
+        const activeSection = document.querySelector('.content-section.spa-active');
+        if (activeSection && activeSection.id !== 'intro') {
+            activeSection.classList.remove('spa-active');
+            void activeSection.offsetHeight;
+            activeSection.classList.add('spa-active');
         }
         if (mobileNav) {
             mobileNav.classList.remove('staged-hidden');
@@ -1278,11 +1295,11 @@ function initStudentTerminal() {
         'cat favorite_bug.log': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'favorite_bug': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'bugs': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
-        'finger john': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenen.estrella@example.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
-        'finger': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenen.estrella@example.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
+        'finger john': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
+        'finger': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
         'cat goals.txt': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
         'goals': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
-        'contact': "Name: John Senen Estrella\nProgram: BSIT (3rd Year)\nInstitution: NU Baliwag\nEmail: johnsenen.estrella@example.com\nLocation: Baliwag, Bulacan, Philippines",
+        'contact': "Name: John Senen Estrella\nProgram: BSIT (3rd Year)\nInstitution: NU Baliwag\nEmail: johnsenenestrella@gmail.com\nLocation: Baliwag, Bulacan, Philippines",
         'stack': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
         'skills': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
         'help': "Available commands:\n  whoami            - Display student bio\n  cat status.txt    - View current BSIT academic status\n  cat goals.txt     - Read growth & practicum goals\n  courses           - List BSIT enrolled coursework\n  cat favorite_bug.log - Read database debugging story\n  finger john       - View student contact & school\n  stack             - View technical toolkit\n  clear             - Reset terminal output"

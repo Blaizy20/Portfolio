@@ -24,7 +24,7 @@ return [
         'term' => '3rd Year · AY 2024–2025',
         'availability' => 'Available for OJT / Practicum',
         'objective' => 'Seeking IT Internship / Industry Practicum Opportunities',
-        'email' => 'johnsenen.estrella@example.com', // [Sample: Replace with your email]
+        'email' => 'johnsenenestrella@gmail.com',
         'phone' => '+63 (900) 000-0000', // [Sample: Replace with your phone]
         'github_username' => 'blaizy20',
         'avatar_photo' => '', // Relative path to student photo (e.g. 'assets/img/profile.jpg'). Defaults to JSE monogram if empty or not found
@@ -64,7 +64,7 @@ return [
             'contact' => [
                 'cmd' => 'finger john',
                 'label' => 'finger john',
-                'output' => "Name: John Senen Estrella\nProgram: BSIT, 3rd Year\nCampus: NU Baliwag (National University Baliwag)\nGitHub: https://github.com/blaizy20\nEmail: johnsenen.estrella@example.com\nStatus: Open for internship inquiries and academic collaborations."
+                'output' => "Name: John Senen Estrella\nProgram: BSIT, 3rd Year\nCampus: NU Baliwag (National University Baliwag)\nGitHub: https://github.com/blaizy20\nEmail: johnsenenestrella@gmail.com\nStatus: Open for internship inquiries and academic collaborations."
             ]
         ]
     ],
@@ -123,9 +123,9 @@ return [
         ],
         'email' => [
             'name' => 'Email',
-            'url' => 'mailto:johnsenen.estrella@example.com',
+            'url' => 'mailto:johnsenenestrella@gmail.com',
             'icon' => 'mail',
-            'handle' => 'johnsenen.estrella@example.com'
+            'handle' => 'johnsenenestrella@gmail.com'
         ]
     ],
 
