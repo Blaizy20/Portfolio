@@ -6,13 +6,6 @@
 ?>
     <footer class="main-colophon">
         <div class="colophon-inner">
-            <div class="colophon-brand">
-                <span class="colophon-avatar">JSE</span>
-                <div>
-                    <div class="colophon-name"><?= htmlspecialchars($data['site']['author']) ?></div>
-                    <div class="colophon-title">3rd Year BSIT Student &middot; NU Baliwag</div>
-                </div>
-            </div>
 
             <div class="colophon-meta">
                 <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($data['site']['author']) ?>. All rights reserved.</p>
