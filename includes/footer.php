@@ -15,8 +15,7 @@
             </div>
 
             <div class="colophon-meta">
-                <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($data['site']['author']) ?>. Handcrafted with vanilla PHP, CSS, and JS.</p>
-                <p class="colophon-note">No bloated frameworks, zero unnecessary dependencies, 100% accessible.</p>
+                <p>&copy; <?= date('Y') ?> <?= htmlspecialchars($data['site']['author']) ?>. All rights reserved.</p>
             </div>
         </div>
     </footer>

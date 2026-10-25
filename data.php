@@ -29,7 +29,7 @@ return [
         'github_username' => 'blaizy20',
         'avatar_photo' => '', // Relative path to student photo (e.g. 'assets/img/profile.jpg'). Defaults to JSE monogram if empty or not found
         'resume_url' => '#resumeModal',
-        'first_portfolio_note' => 'Student portfolio built by hand with vanilla PHP and modern CSS.',
+        'first_portfolio_note' => 'Personal student portfolio built with vanilla PHP and modern CSS.',
     ],
 
     // Terminal Quick Commands & Interactive Outputs
@@ -240,10 +240,10 @@ return [
         ],
         [
             'id' => 'portfolio-site',
-            'title' => 'Handcrafted Student Web Portfolio',
-            'subtitle' => 'Accessible, framework-free personal portfolio and technical notebook',
+            'title' => 'Personal Web Portfolio',
+            'subtitle' => 'Accessible personal portfolio and technical notebook with zero third-party dependencies',
             'category' => 'Personal Project',
-            'tagline' => 'Built from scratch with vanilla PHP, modern CSS, and JavaScript.',
+            'tagline' => 'Built with vanilla PHP, modern CSS, and JavaScript.',
             'context' => 'Created to document my 3rd year BSIT journey at NU Baliwag, project contributions to CredenceLend and CityWatch, and technical lessons learned throughout my studies.',
             'tags' => ['PHP 8', 'Vanilla CSS', 'JavaScript', 'SPA Router'],
             'what_broke' => 'Building an SPA view router with browser back/forward history without relying on heavy frontend frameworks required careful popstate and hash routing handling.',

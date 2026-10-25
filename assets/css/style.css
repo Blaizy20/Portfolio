@@ -3813,8 +3813,8 @@ article[id],
 
 .form-group-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
 }
 
 .form-group {
@@ -3961,15 +3961,10 @@ article[id],
 }
 
 .colophon-meta {
-    font-size: 0.82rem;
-    color: var(--text-muted);
+    font-size: 0.88rem;
+    color: var(--text-secondary);
     text-align: right;
     line-height: 1.5;
-}
-
-.colophon-note {
-    font-size: 0.75rem;
-    color: var(--text-subtle);
 }
 
 /* ==========================================================================
