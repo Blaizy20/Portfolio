@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                                name="email" 
                                class="form-control" 
                                required 
-                               placeholder="e.g., sarah@example.com"
+                               placeholder="e.g., sarah.chen@company.com"
                                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
                     </div>
                 </div>
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_contact_submi
                               class="form-control form-textarea" 
                               rows="5" 
                               required 
-                              placeholder="Write your note here..."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
+                              placeholder="e.g., Hi John, I came across your CredenceLend project and would like to discuss an upcoming IT Practicum / Software Engineering internship opening on our engineering team..."><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
                 </div>
 
                 <button type="submit" name="student_contact_submit" value="1" class="btn btn-primary submit-btn">

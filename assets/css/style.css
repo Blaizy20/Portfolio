@@ -80,34 +80,50 @@
     --transition-smooth: 240ms var(--ease-out);
 }
 
-/* Light Theme Variables */
+/* Light Theme Variables (Calm, Soft Neutral - Toned down to prevent glare/glow) */
 [data-theme="light"] {
-    --bg-base: #f8f9fa;
+    --bg-base: #f1f3f6;
     --bg-surface: #ffffff;
-    --bg-surface-elevated: #f1f3f5;
-    --bg-card: rgba(255, 255, 255, 0.95);
-    --bg-card-hover: #ffffff;
+    --bg-surface-elevated: #e6e9ef;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fcfdfe;
     --bg-input: #ffffff;
-    --bg-terminal: #16181d;
-    --bg-header: rgba(248, 249, 250, 0.9);
+    --bg-terminal: #1e222b;
+    --bg-header: rgba(241, 243, 246, 0.88);
     --bg-glass: rgba(255, 255, 255, 0.88);
 
-    --border-subtle: rgba(0, 0, 0, 0.09);
-    --border-highlight: rgba(0, 0, 0, 0.18);
-    --border-strong: rgba(0, 0, 0, 0.32);
+    --border-subtle: rgba(15, 23, 42, 0.08);
+    --border-highlight: rgba(15, 23, 42, 0.14);
+    --border-strong: rgba(15, 23, 42, 0.24);
 
-    --text-primary: #18181b;
-    --text-secondary: #52525b;
-    --text-muted: #52525b;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
     --text-inverse: #ffffff;
 
-    --brand-primary: #18181b;
-    --brand-primary-hover: #27272a;
-    --brand-accent: #18181b;
+    --brand-primary: #0f172a;
+    --brand-primary-hover: #1e293b;
+    --brand-accent: #0f172a;
 
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.09);
-    --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.14);
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07);
+    --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+/* ==========================================================================
+   Silky Smooth Theme Transitions (Prevents Flashbang Effect on Theme Toggle)
+   ========================================================================== */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+    transition: background-color 380ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 380ms cubic-bezier(0.16, 1, 0.3, 1),
+                color 300ms ease,
+                fill 300ms ease,
+                stroke 300ms ease,
+                box-shadow 380ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition-delay: 0s !important;
 }
 
 /* ==========================================================================
@@ -125,6 +141,7 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 2rem);
     color-scheme: dark light;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -145,6 +162,7 @@ body {
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 button, a, input, select, textarea {
@@ -526,19 +544,7 @@ body.sidebar-collapsed .site-shell {
     height: 15px;
 }
 
-/* Top Navigation Header Desktop Sidebar Toggle Button */
-.sidebar-desktop-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.65rem;
-}
-
-@media (max-width: 1023px) {
-    .sidebar-desktop-toggle-btn {
-        display: none !important;
-    }
-}
+/* Single dedicated in-sidebar collapse button (#sidebarCollapseBtn) */
 
 /* Toggle Icon States */
 .icon-collapse {
@@ -1091,7 +1097,13 @@ body.sidebar-collapsed .main-content {
     display: none;
     flex: 1;
     opacity: 0;
+    scroll-margin-top: calc(var(--header-height) + 2rem);
     will-change: opacity, transform;
+}
+
+article[id],
+.student-project-card[id] {
+    scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
 .content-section.spa-active {
@@ -2977,10 +2989,25 @@ body.sidebar-collapsed .main-content {
     background: var(--bg-surface);
 }
 
-/* Project Archetype 2: Terminal Inspector Card (MiniGit CLI) */
+/* Project Archetype 2: Architecture & Capstone Card (CredenceLend Final Project) */
+.project-architecture-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+}
+
 .project-terminal-card {
-    background: #090a0d;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+}
+
+[data-theme="light"] .student-project-card,
+[data-theme="light"] .project-featured-card,
+[data-theme="light"] .project-split-card,
+[data-theme="light"] .project-architecture-card,
+[data-theme="light"] .project-canvas-card,
+[data-theme="light"] .project-terminal-card {
+    background: var(--bg-surface);
+    border-color: var(--border-subtle);
 }
 
 .project-cli-header {
@@ -5191,6 +5218,12 @@ body.sidebar-collapsed .main-content {
     z-index: 10;
 }
 
+[data-theme="light"] .site-header.staged-enter::after {
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.06) 15%, #3b82f6 45%, #60a5fa 55%, rgba(59, 130, 246, 0.06) 85%, transparent 100%);
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.25);
+    opacity: 0.45;
+}
+
 @keyframes headerBeamSweep {
     0% {
         transform: translateX(-100%);
@@ -5287,6 +5320,12 @@ body.sidebar-collapsed .main-content {
         animation: sidebarBeamSweep 1450ms cubic-bezier(0.16, 1, 0.3, 1) 300ms forwards;
         pointer-events: none;
         z-index: 10;
+    }
+
+    [data-theme="light"] .site-sidebar.staged-enter::after {
+        background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.06) 15%, #3b82f6 45%, #60a5fa 55%, rgba(59, 130, 246, 0.06) 85%, transparent 100%);
+        box-shadow: 0 0 6px rgba(59, 130, 246, 0.25);
+        opacity: 0.45;
     }
 
     .site-sidebar.staged-enter .sidebar-header-row {

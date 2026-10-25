@@ -52,10 +52,6 @@
 <header class="site-header staged-hidden" id="siteHeader">
     <div class="header-inner">
         <div class="header-left">
-            <button type="button" class="header-icon-btn sidebar-desktop-toggle-btn" id="headerSidebarToggleBtn" aria-label="Toggle navigation bar" title="Toggle navigation bar (Ctrl+B)">
-                <span class="icon-collapse"><?= render_icon('sidebar-collapse') ?></span>
-                <span class="icon-expand"><?= render_icon('sidebar-expand') ?></span>
-            </button>
             <a href="#intro" class="header-brand" aria-label="<?= htmlspecialchars($data['site']['author']) ?> - Home">
                 <span class="header-brand-badge"><?= strtoupper(substr($data['site']['author'], 0, 1)) ?></span>
                 <span class="header-brand-name"><?= htmlspecialchars($data['site']['author']) ?></span>

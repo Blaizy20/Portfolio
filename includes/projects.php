@@ -156,7 +156,7 @@ SVG;
             } elseif ($pid === 'citywatch') {
                 $variantClass .= ' project-split-card';
             } elseif ($pid === 'final-project') {
-                $variantClass .= ' project-terminal-card';
+                $variantClass .= ' project-architecture-card';
             } elseif ($pid === 'portfolio-site') {
                 $variantClass .= ' project-canvas-card';
             }

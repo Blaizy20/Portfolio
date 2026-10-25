@@ -798,18 +798,27 @@ function initTheme() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
 
-    applyTheme(initialTheme);
+    applyTheme(initialTheme, false);
 
-    function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('portfolio-theme', theme);
+    function applyTheme(theme, isUserToggle = false) {
+        if (isUserToggle) {
+            document.documentElement.classList.add('theme-transitioning');
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('portfolio-theme', theme);
+            setTimeout(() => {
+                document.documentElement.classList.remove('theme-transitioning');
+            }, 380);
+        } else {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('portfolio-theme', theme);
+        }
     }
 
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme');
             const next = current === 'light' ? 'dark' : 'light';
-            applyTheme(next);
+            applyTheme(next, true);
         });
     }
 }
@@ -1131,14 +1140,10 @@ function initSpaRouter() {
             }
         }
 
-        // Reset scroll position to top of view
-        if (updateHistory) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-        }
+        // Reset scroll position cleanly to top of view so content is never eaten by the header
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
 
         // If mobile drawer was open, close it
         const sidebar = document.getElementById('siteSidebar');
