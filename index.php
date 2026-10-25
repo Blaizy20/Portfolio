@@ -15,7 +15,7 @@ require_once __DIR__ . '/includes/icons.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/sidebar.php';
 ?>
-<main class="main-content staged-hidden" id="mainContent">
+<main class="main-content" id="mainContent">
 <?php
 require __DIR__ . '/includes/intro.php';
 // Coursework, Lab Notes, and Campus/Clubs sections disabled as requested; core coursework integrated into Introduction

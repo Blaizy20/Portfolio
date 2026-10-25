@@ -6,7 +6,7 @@
  * Provides instant tactile access to sections 01-06 with safe-area padding.
  */
 ?>
-<nav class="mobile-bottom-nav staged-hidden" id="mobileBottomNav" aria-label="Mobile Bottom Navigation">
+<nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Bottom Navigation">
     <div class="mobile-bottom-nav-inner">
         <!-- Physical Sliding Liquid Glass Selector Indicator (glides left/right between sections) -->
         <div class="mobile-liquid-glass-indicator" id="mobileGlassIndicator" aria-hidden="true"></div>

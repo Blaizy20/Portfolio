@@ -4,7 +4,7 @@
  * Displays only the 01-06 section navigation with smooth collapse/expand functionality.
  */
 ?>
-<aside class="site-sidebar staged-hidden" id="siteSidebar" aria-label="Sections Navigation">
+<aside class="site-sidebar" id="siteSidebar" aria-label="Sections Navigation">
     <div class="sidebar-inner">
         <!-- Mobile Drawer Close Button -->
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation drawer">

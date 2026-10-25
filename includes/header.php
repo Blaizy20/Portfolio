@@ -49,7 +49,7 @@
 <a href="#mainContent" class="skip-link">Skip to main content</a>
 
 <!-- Sleek Top Header: Brand, Theme Toggle & Utility Controls -->
-<header class="site-header staged-hidden" id="siteHeader">
+<header class="site-header" id="siteHeader">
     <div class="header-inner">
         <div class="header-left">
             <a href="#intro" class="header-brand" aria-label="<?= htmlspecialchars($data['site']['author']) ?> - Home">

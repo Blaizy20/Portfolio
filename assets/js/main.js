@@ -78,6 +78,18 @@ function initWelcomeScreen() {
         sessionStorage.removeItem('portfolio-welcome-seen');
     } catch (_) {}
 
+    // If running in an automated browser (e.g. testing/crawlers) or reduced motion, skip intro immediately
+    if (navigator.webdriver || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        welcomeScreen.style.display = 'none';
+        welcomeScreen.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('welcome-locked');
+        if (header) { header.classList.remove('staged-hidden'); header.classList.add('staged-enter'); }
+        if (sidebar) { sidebar.classList.remove('staged-hidden'); sidebar.classList.add('staged-enter'); }
+        if (content) { content.classList.remove('staged-hidden'); content.classList.add('staged-enter'); }
+        if (mobileNav) { mobileNav.classList.remove('staged-hidden'); mobileNav.classList.add('staged-enter'); }
+        return;
+    }
+
     // Immediately lock page scroll while welcome card is present and pin to top
     document.body.classList.add('welcome-locked');
     window.scrollTo(0, 0);
