@@ -78,7 +78,7 @@ return [
             'value' => 'Frontend & UI/UX',
             'label' => 'Core Specialization',
             'detail' => 'Responsive interface design, modern CSS architecture, design systems, and WCAG AA accessibility.',
-            'chips' => ['Frontend Dev', 'UI/UX Design', 'TypeScript', 'HTML5', 'CSS3', 'PHP 8', 'MySQL']
+            'chips' => ['TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'PHP 8', 'MySQL']
         ],
         [
             'id' => 'practicum',

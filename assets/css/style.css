@@ -56,13 +56,15 @@
     --radius-lg: 16px;
     --radius-full: 9999px;
 
-    /* Distinctive Display Face for H1 (Foundry: Indian Type Foundry - ITF) */
+    /* ==========================================================================
+       Strict 3-Font System (Display, Primary UI Sans, System Monospace)
+       ========================================================================== */
+    /* 1. Distinctive Display Face for H1 & Brand Identity (Foundry: ITF) */
     --font-display: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    /* Clean System-Font Stack for Headings: Instant zero-latency rendering */
+    /* 2. Primary UI Sans for Headings, Navigation, Inputs & Body Prose */
     --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    /* Native System-Font Stack for Body: Instant rendering, zero latency, maximum clarity */
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    /* Native System Monospace for Code & Terminal */
+    /* 3. Native Monospace for Terminal, Code, Tags, Metrics & Diagrams */
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     --header-height: 64px;
@@ -2038,7 +2040,7 @@ article[id],
 }
 
 .milestone-chip {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 600;
     line-height: 1;
@@ -3254,6 +3256,14 @@ article[id],
     width: 100%;
     max-width: 540px;
     height: auto;
+}
+
+.project-diagram-svg text {
+    font-family: var(--font-body);
+}
+
+.project-diagram-svg text[font-family*="monospace"] {
+    font-family: var(--font-mono);
 }
 
 [data-theme="light"] .project-diagram-svg rect[fill="rgba(20,22,30,0.85)"] {
