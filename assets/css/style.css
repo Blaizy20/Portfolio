@@ -202,7 +202,20 @@ button, a, input, select, textarea {
     outline: 3px solid var(--brand-primary);
 }
 
-/* Typography Defaults */
+/* ==========================================================================
+   Global Accessible Focus Ring (WCAG 2.2 AA Focus Indicators)
+   ========================================================================== */
+:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+[data-theme="light"] :focus-visible {
+    outline-color: #2563eb;
+}
+
+/* Typography Defaults & Modern Line Balancing */
 h1,
 h2,
 h3,
@@ -214,6 +227,7 @@ h6 {
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.025em;
+    text-wrap: balance;
 }
 
 h1,
@@ -226,6 +240,15 @@ h1,
 
 p {
     color: var(--text-secondary);
+    text-wrap: pretty;
+}
+
+.nav-num,
+.mobile-nav-num,
+.welcome-percent-readout,
+.metric-pill,
+.cli-result {
+    font-variant-numeric: tabular-nums;
 }
 
 a {

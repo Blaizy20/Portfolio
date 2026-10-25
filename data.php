@@ -13,17 +13,17 @@
 return [
     // Personal & Student Information
     'site' => [
-        'title' => 'John Senen Estrella | 3rd Year BSIT Student @ NU Baliwag',
-        'meta_description' => 'Personal student portfolio and project notebook of John Senen Estrella, 3rd year BSIT student at National University Baliwag.',
+        'title' => 'John Senen Estrella | Aspiring Frontend Developer & UI/UX',
+        'meta_description' => 'Portfolio of John Senen Estrella — Aspiring Frontend Developer & UI/UX Designer. 3rd year BSIT student at National University Baliwag specializing in responsive interfaces, design systems, and modern web applications.',
         'author' => 'John Senen Estrella',
-        'role' => '3rd Year BSIT Student',
-        'subrole' => 'BS in Information Technology · NU Baliwag',
+        'role' => 'Aspiring Frontend Developer & UI/UX',
+        'subrole' => 'Aspiring Frontend Developer & UI/UX · 3rd Year BSIT',
         'degree' => 'BS in Information Technology',
         'institution' => 'NU Baliwag',
         'location' => 'Baliwag, Bulacan, Philippines',
         'term' => '3rd Year · AY 2024–2025',
         'availability' => 'Available for OJT / Practicum',
-        'objective' => 'Seeking IT Internship / Industry Practicum Opportunities',
+        'objective' => 'Seeking Frontend Development & UI/UX Internship / Industry Practicum',
         'email' => 'johnsenenestrella@gmail.com',
         'phone' => '+63 (900) 000-0000', // [Sample: Replace with your phone]
         'github_username' => 'blaizy20',
@@ -39,12 +39,12 @@ return [
             'whoami' => [
                 'cmd' => 'whoami',
                 'label' => 'whoami',
-                'output' => "John Senen Estrella\n3rd Year College Student taking BS in Information Technology (BSIT)\nNational University (NU) Baliwag\nBackend & Database Architect for CredenceLend · Frontend UI/UX for CityWatch."
+                'output' => "John Senen Estrella\nAspiring Frontend Developer & UI/UX Designer\n3rd Year BSIT Student @ National University (NU) Baliwag\nFrontend UI/UX Developer for CityWatch · Web Systems & Database Contributor for CredenceLend."
             ],
             'status' => [
                 'cmd' => 'cat status.txt',
                 'label' => 'cat status.txt',
-                'output' => "Academic Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University (NU) Baliwag\nCurrent Focus: Web Systems (PHP), Relational Databases (MySQL), Multi-Tenancy & UI/UX\nGitHub: https://github.com/blaizy20\nGoal: Seeking IT Practicum / Internship"
+                'output' => "Standing: 3rd Year College Student\nRole: Aspiring Frontend Developer & UI/UX Designer\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University (NU) Baliwag\nCurrent Focus: Modern CSS, Design Systems, Fluid Micro-Interactions & Web Accessibility\nGitHub: https://github.com/blaizy20\nGoal: Seeking Frontend / UI/UX Practicum & Internship"
             ],
             'courses' => [
                 'cmd' => 'courses --current',
@@ -54,7 +54,7 @@ return [
             'goals' => [
                 'cmd' => 'cat goals.txt',
                 'label' => 'cat goals.txt',
-                'output' => "Student Goals:\n1. Build scalable multi-tenant web systems & secure REST APIs\n2. Design intuitive, accessible UI/UX for civic & business platforms\n3. Complete capstone systems requirements for CredenceLend\n4. Prepare for 4th year IT industry practicum / internship"
+                'output' => "Career Goals:\n1. Master modern frontend engineering, component systems, and fluid micro-interactions\n2. Design intuitive, accessible (WCAG AA) interfaces that delight real users\n3. Bridge the gap between engineering rigor and aesthetic UI polish\n4. Secure a 4th-year Frontend / UI/UX internship placement"
             ],
             'favorite_bug' => [
                 'cmd' => 'cat favorite_bug.log',
@@ -75,10 +75,10 @@ return [
             'id' => 'focus',
             'is_highlight' => true,
             'tag' => 'Technical Focus',
-            'value' => 'Web & DB',
+            'value' => 'Frontend & UI/UX',
             'label' => 'Core Specialization',
-            'detail' => 'Web Systems Architecture, Relational Databases (MySQL) & Network Infrastructure.',
-            'chips' => ['PHP 8', 'MySQL', 'TypeScript', 'HTML5', 'CSS3']
+            'detail' => 'Responsive interface design, modern CSS architecture, design systems, and WCAG AA accessibility.',
+            'chips' => ['Frontend Dev', 'UI/UX Design', 'TypeScript', 'HTML5', 'CSS3', 'PHP 8', 'MySQL']
         ],
         [
             'id' => 'practicum',
@@ -320,7 +320,7 @@ return [
 
     // Resume Data (for modal view)
     'resume' => [
-        'summary' => '3rd year Bachelor of Science in Information Technology (BSIT) student at National University (NU) Baliwag with foundations in web systems, database administration, and computer networking. Eager to apply classroom knowledge in a real-world setting, learn from experienced industry professionals, and contribute to software and IT infrastructure projects through an internship / practicum role.',
+        'summary' => 'Aspiring Frontend Developer and UI/UX Designer, currently in 3rd year pursuing Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. Passionate about building responsive, accessible (WCAG AA), and high-performance web applications with clean design engineering, tactile micro-interactions, and solid semantic foundations. Seeking a frontend development or UI/UX internship / practicum to contribute to modern digital products.',
         'education' => [
             'degree' => 'Bachelor of Science in Information Technology (BSIT)',
             'institution' => 'National University (NU) Baliwag',
@@ -328,11 +328,11 @@ return [
             'honors' => '3rd Year College Student · College of Computing and IT'
         ],
         'core_competencies' => [
-            'Web Development Fundamentals (PHP, JavaScript, HTML5, CSS3)',
-            'Relational Database Management (MySQL, SQL, phpMyAdmin)',
-            'Networking Fundamentals (TCP/IP, VLAN Segmentation, Subnetting)',
-            'Systems Analysis & Design (ERD, DFD, Workflow Documentation)',
-            'Tools & Platforms (Git, GitHub, VS Code, XAMPP)'
+            'Frontend Development (HTML5, Modern CSS, Responsive Layouts, JavaScript/TypeScript)',
+            'UI/UX Design & Prototyping (Design Systems, Component Architecture, WCAG AA Accessibility, Micro-interactions)',
+            'Web Systems & Architecture (PHP 8, REST APIs, JSON Integration)',
+            'Relational Database Management (MySQL, Relational Data Modeling)',
+            'Version Control & Developer Tools (Git, GitHub, VS Code, Browser DevTools)'
         ]
     ]
 ];

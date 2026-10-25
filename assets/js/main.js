@@ -64,8 +64,8 @@ function initWelcomeScreen() {
     const content = document.getElementById('mainContent');
     const mobileNav = document.getElementById('mobileBottomNav');
 
-    const fullHeadline = 'Building web systems, database architectures, and IT solutions.';
-    const fullLeadText = "Hi, I'm John Senen Estrella. I'm a 3rd year college student taking Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. This is my student portfolio: a place where I document coursework, projects, and the skills I'm developing along the way.";
+    const fullHeadline = 'Building responsive interfaces, design systems, and modern web applications.';
+    const fullLeadText = "Hi, I'm John Senen Estrella. I'm an aspiring frontend developer and UI/UX designer, currently in my 3rd year taking Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. This portfolio documents my interface experiments, design engineering projects, and the web craft I'm developing along the way.";
 
     let hasDismissed = false;
     let isFullyCompleted = false;
@@ -1299,21 +1299,21 @@ function initStudentTerminal() {
     if (!terminalOutput) return;
 
     const COMMAND_DB = {
-        'whoami': "John Senen Estrella\n3rd year college student taking the program of BSIT at NU Baliwag.\nPassionate about web systems, relational databases, network infrastructure, and clean architecture.",
-        'cat status.txt': "Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nFocus: Web Development, Database Management, and Networking\nUpcoming: Industry Practicum / OJT Placement",
-        'status': "Standing: 3rd Year College Student\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nFocus: Web Development, Database Management, and Networking\nUpcoming: Industry Practicum / OJT Placement",
+        'whoami': "John Senen Estrella\nAspiring Frontend Developer & UI/UX Designer\n3rd Year BSIT Student @ National University (NU) Baliwag\nCrafting responsive web interfaces, design systems, and modern web applications.",
+        'cat status.txt': "Standing: 3rd Year College Student\nRole: Aspiring Frontend Developer & UI/UX Designer\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nCurrent Focus: Modern CSS, Design Systems, Fluid Micro-Interactions & Web Accessibility\nUpcoming: Industry Practicum / OJT Placement",
+        'status': "Standing: 3rd Year College Student\nRole: Aspiring Frontend Developer & UI/UX Designer\nProgram: Bachelor of Science in Information Technology (BSIT)\nInstitution: National University Baliwag (NU Baliwag)\nCurrent Focus: Modern CSS, Design Systems, Fluid Micro-Interactions & Web Accessibility\nUpcoming: Industry Practicum / OJT Placement",
         'courses --current': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Network Architecture)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
         'courses': "[BSIT Core Coursework & Labs]\n- IT 301: Web Systems and Technologies (PHP, MySQL, CSS)\n- IT 302: Database Management Systems 2 (Normalization, ACID, SQL)\n- IT 303: Advanced Computer Networks (Subnetting, Network Architecture)\n- IT 304: Systems Analysis and Design (SDLC, ERD, DFD Modeling)\n- IT 201: Object-Oriented Programming (Java / PHP OOP)\n- IT 202: Information Assurance and Security (Auth & Defense)",
         'cat favorite_bug.log': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'favorite_bug': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
         'bugs': "Late night database debugging session:\nSpent 2 hours troubleshooting why a student registration query failed silently.\nRoot cause: Unquoted string literal inside an unparameterized SQL concatenation.\nLesson: Switched completely to PDO prepared statements with parameterized binds. Never concatenate raw input into SQL.",
-        'finger john': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
-        'finger': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
-        'cat goals.txt': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
-        'goals': "BSIT Growth Goals:\n1. Master end-to-end full-stack web systems with PHP & MySQL\n2. Configure enterprise-grade network architecture and subnet routing\n3. Complete industry practicum / OJT with high real-world impact\n4. Develop an impactful capstone project solving campus workflows",
-        'contact': "Name: John Senen Estrella\nProgram: BSIT (3rd Year)\nInstitution: NU Baliwag\nEmail: johnsenenestrella@gmail.com\nLocation: Baliwag, Bulacan, Philippines",
-        'stack': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
-        'skills': "Languages: PHP 8, JavaScript (ES6+), SQL, Java, HTML5, CSS3\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nNetworking & Tools: Network Infrastructure, Wireshark, Git & GitHub, VS Code\nMethodologies: SDLC Modeling, DFD & ERD Design, Agile & Scrum Basics",
+        'finger john': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nRole: Aspiring Frontend Developer & UI/UX Designer\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
+        'finger': "Login: johnsenen         Name: John Senen Estrella\nStanding: 3rd Year BSIT Student\nRole: Aspiring Frontend Developer & UI/UX Designer\nSchool: National University Baliwag\nEmail: johnsenenestrella@gmail.com\nStatus: Preparing for incoming industry practicum (OJT). Open to feedback & tech collaboration.",
+        'cat goals.txt': "Career Goals:\n1. Master modern frontend engineering, component systems, and fluid micro-interactions\n2. Design intuitive, accessible (WCAG AA) interfaces that delight real users\n3. Bridge the gap between engineering rigor and aesthetic UI polish\n4. Secure a 4th-year Frontend / UI/UX internship placement",
+        'goals': "Career Goals:\n1. Master modern frontend engineering, component systems, and fluid micro-interactions\n2. Design intuitive, accessible (WCAG AA) interfaces that delight real users\n3. Bridge the gap between engineering rigor and aesthetic UI polish\n4. Secure a 4th-year Frontend / UI/UX internship placement",
+        'contact': "Name: John Senen Estrella\nRole: Aspiring Frontend Developer & UI/UX Designer\nProgram: BSIT (3rd Year)\nInstitution: NU Baliwag\nEmail: johnsenenestrella@gmail.com\nLocation: Baliwag, Bulacan, Philippines",
+        'stack': "Languages: JavaScript / TypeScript, Modern CSS3, HTML5, PHP 8, SQL\nDesign & Systems: Design Systems, Responsive Layouts, Fluid Animations, WCAG AA Accessibility\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nDeveloper Tools: Git & GitHub, VS Code, Browser DevTools, Responsive Emulation",
+        'skills': "Languages: JavaScript / TypeScript, Modern CSS3, HTML5, PHP 8, SQL\nDesign & Systems: Design Systems, Responsive Layouts, Fluid Animations, WCAG AA Accessibility\nFrameworks & DBs: MySQL / MariaDB, Apache, PDO Architecture\nDeveloper Tools: Git & GitHub, VS Code, Browser DevTools, Responsive Emulation",
         'help': "Available commands:\n  whoami            - Display student bio\n  cat status.txt    - View current BSIT academic status\n  cat goals.txt     - Read growth & practicum goals\n  courses           - List BSIT enrolled coursework\n  cat favorite_bug.log - Read database debugging story\n  finger john       - View student contact & school\n  stack             - View technical toolkit\n  clear             - Reset terminal output"
     };
 
@@ -1444,7 +1444,17 @@ function initProjectTabs() {
         const overviewContent = card.querySelector('.tab-overview');
         const retroContent = card.querySelector('.tab-retrospective');
 
-        tabBtns.forEach(btn => {
+        tabBtns.forEach((btn, index) => {
+            // Accessible W3C ARIA Tab Navigation (ArrowLeft / ArrowRight)
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const nextIndex = e.key === 'ArrowRight' ? (index + 1) % tabBtns.length : (index - 1 + tabBtns.length) % tabBtns.length;
+                    tabBtns[nextIndex].focus();
+                    tabBtns[nextIndex].click();
+                }
+            });
+
             btn.addEventListener('click', () => {
                 const targetTab = btn.getAttribute('data-tab');
 

@@ -55,15 +55,15 @@
 
         <div class="intro-narrative">
             <h2 class="intro-headline" id="typedIntroHeadline">
-                <span class="typewriter-text" id="typewriterText">Building web systems, database architectures, and IT solutions.</span>
+                <span class="typewriter-text" id="typewriterText">Building responsive interfaces, design systems, and modern web applications.</span>
                 <span class="typewriter-cursor" id="typewriterCursor" aria-hidden="true"></span>
             </h2>
             <p class="intro-lead" id="introLeadText">
-                <span class="typewriter-text" id="typewriterLeadText">Hi, I'm <strong><?= htmlspecialchars($data['site']['author']) ?></strong>. I'm a 3rd year college student taking Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. This is my student portfolio: a place where I document coursework, projects, and the skills I'm developing along the way.</span>
+                <span class="typewriter-text" id="typewriterLeadText">Hi, I'm <strong><?= htmlspecialchars($data['site']['author']) ?></strong>. I'm an aspiring frontend developer and UI/UX designer, currently in my 3rd year taking Bachelor of Science in Information Technology (BSIT) at National University (NU) Baliwag. This portfolio documents my interface experiments, design engineering projects, and the web craft I'm developing along the way.</span>
                 <span class="typewriter-cursor is-hidden" id="typewriterLeadCursor" aria-hidden="true"></span>
             </p>
             <p class="intro-subtext staged-subtext-hidden" id="introSubtext">
-                Currently focused on web systems development with PHP and MySQL, network administration and subnet modeling, systems analysis, and building clean, reliable tools.
+                Focused on crafting responsive interfaces, fluid micro-interactions, accessible design systems (WCAG 2.1 AA), and bridging the gap between design engineering and solid web systems.
             </p>
         </div>
     </div>
